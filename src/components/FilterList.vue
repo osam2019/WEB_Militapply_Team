@@ -3,8 +3,8 @@
     <li 
       v-for="item in items"
       :key="item.id"
-      :class="{active: item.id === selected}"
-      @click="selected = this.key">
+      :class="{active: item.id === selectedItem}"
+      @click="$emit('itemClicked', item.id)">
       {{item.name}}
     </li>
   </ul>
@@ -14,12 +14,8 @@
 export default {
   name: "FilterList",
   props: {
-    items: Array
-  },
-  data() {
-    return {
-      selected: 1
-    };
+    items: Array,
+    selectedItem: Number
   }
 };
 </script>

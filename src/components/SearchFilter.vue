@@ -1,10 +1,11 @@
 <template>
   <header>
     <div class="filter-container">
-      <FilterList :items="groups" :selected="groupId"/>
-      <FilterList v-if="groupId" :items="categories" :selected="categoryId"/>
+      <FilterList :items="groups" :selectedItem="groupId" @itemClicked="onGroupChanged"/>
+      <FilterList v-if="groupId >= 0" :items="categories" :selectedItem="categoryId" @itemClicked="onCategoryChanged"/>
+        <FilterList v-if="categoryId >= 0" :items="specialities" :selectedItem="specialityId" @itemClicked="onSpecialityChanged"/>
     </div>
-    <button>
+    <button :disabled="specialityId < 0">
       <i class="icofont-search-1"></i>
       <span>검색</span>
     </button>
@@ -24,13 +25,31 @@ export default {
   data() {
     return {
       groups,
-      groupId: 1,
-      categoryId: null
+      groupId: -1,
+      categoryId: -1,
+      specialityId: -1
     };
+  },
+  methods: {
+    onGroupChanged(groupId) {
+      this.specialityId = -1;
+      this.categoryId = -1;
+      this.groupId = groupId;
+    },
+    onCategoryChanged(categoryId) {
+      this.specialityId = -1;
+      this.categoryId = categoryId;
+    },
+    onSpecialityChanged(specialityId) {
+      this.specialityId = specialityId;
+    }
   },
   computed: {
     categories() {
       return getCategoryData(this.groupId);
+    },
+    specialities() {
+      return getSpecialityData(this.groupId, this.categoryId);
     }
   }
 };
@@ -57,8 +76,8 @@ function getGroupData() {
 }
 
 function getCategoryData(groupId) {
-  if(groupId === null) return null;
-
+  if(groupId === -1) return null;
+  
   return [{
     name: "기술행정병",
     id: 1
@@ -71,6 +90,27 @@ function getCategoryData(groupId) {
     name: "아따따따따",
     id: 3
   }];
+}
+
+function getSpecialityData(groupId, categoryId) {
+  if(groupId < 0 || categoryId < 0) return null;
+
+  return [{
+    name: "SW 개발병",
+    id: 0
+  },
+  {
+    name: "지식재산관리병",
+    id: 1
+  },
+  {
+    name: "어학병",
+    id: 2
+  },
+  {
+    name: "정보보호병",
+    id: 3
+  }]
 }
 </script>
 
@@ -92,5 +132,9 @@ button {
   margin: 15px auto 0;
   color: white;
   background-color: #1565C0;
+}
+
+button[disabled] {
+  background-color: #1565C055;
 }
 </style>
