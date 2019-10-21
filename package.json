@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "bootstrap": "4.3.1",
+    "chart.js": "^2.8.0",
     "hooper": "0.3.4",
     "vue": "^2.5.22",
     "vue-router": "3.1.3",

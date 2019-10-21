@@ -64,7 +64,7 @@ li::after {
 }
 
 li:hover::after {
-  background-color: rgb(231, 76, 60, 1);
+  background-color: rgba(231, 76, 60, 1);
 }
 
 i {
@@ -83,16 +83,17 @@ button {
   height: 35px;
   background-color: rgb(231, 76, 60);
   color: white;
-  border: 2px solid rgb(231, 76, 60, 0);
+  border: 2px solid rgba(231, 76, 60, 0);
   line-height: 21px;
   margin-left: 30px;
   padding: 5px;
   font-size: 1rem;
 }
 
-button:hover,.router-link-active > button {
+button:hover,
+.router-link-active > button {
   color: rgb(231, 76, 60);
   background-color: white;
-  border: 2px solid rgb(231, 76, 60, 1);
+  border: 2px solid rgba(231, 76, 60, 1);
 }
 </style>

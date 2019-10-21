@@ -1,11 +1,12 @@
 <template>
   <ul>
-    <li 
+    <li
       v-for="item in items"
       :key="item.id"
-      :class="{active: item.id === selectedItem}"
-      @click="$emit('itemClicked', item.id)">
-      {{item.name}}
+      :class="{ active: item.id === selectedItem }"
+      @click="$emit('itemClicked', item.id)"
+    >
+      {{ item.name }}
     </li>
   </ul>
 </template>
@@ -45,6 +46,6 @@ li:hover {
 }
 
 li.active {
-  color: rgb(231,70,64);
+  color: rgb(231, 70, 64);
 }
 </style>

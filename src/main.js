@@ -4,7 +4,7 @@ import App from "./App.vue";
 import Vuetify from "vuetify";
 import "vuetify/dist/vuetify.min.css";
 import DashBoard from "./components/DashBoard.vue";
-import PageSearch from "./components/PageSearch.vue";
+import SearchPage from "./components/SearchPage.vue";
 import Schedule from "./components/Schedule.vue";
 
 Vue.config.productionTip = false;
@@ -14,7 +14,7 @@ Vue.use(Vuetify);
 
 const routes = [
   { path: "/", component: DashBoard },
-  { path: "/search", component: PageSearch },
+  { path: "/search", component: SearchPage },
   { path: "/info", component: DashBoard },
   { path: "/stats", component: DashBoard },
   { path: "/apply", component: DashBoard },

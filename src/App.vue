@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <router-link to="/">
-      <img width="25%" src="./assets/logo.png">
+      <img src="./assets/logo.png" alt="logo"/>
     </router-link>
-    <MenuBar :menu="menu"/>
-    <router-view/>
+    <MenuBar :menu="menu" />
+    <router-view />
 
-    <Schedule/>
+    <Schedule />
   </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
   name: "App",
   components: {
     MenuBar,
-    Schedule,
+    Schedule
   },
   data() {
     return {

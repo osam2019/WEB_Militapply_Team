@@ -1,11 +1,28 @@
 <template>
   <header>
     <div class="filter-container">
-      <FilterList :items="groups" :selectedItem="groupId" @itemClicked="onGroupChanged"/>
-      <FilterList v-if="groupId >= 0" :items="categories" :selectedItem="categoryId" @itemClicked="onCategoryChanged"/>
-        <FilterList v-if="categoryId >= 0" :items="specialities" :selectedItem="specialityId" @itemClicked="onSpecialityChanged"/>
+      <FilterList
+        :items="groups"
+        :selectedItem="groupId"
+        @itemClicked="onGroupChanged"
+      />
+      <FilterList
+        v-if="groupId >= 0"
+        :items="categories"
+        :selectedItem="categoryId"
+        @itemClicked="onCategoryChanged"
+      />
+      <FilterList
+        v-if="categoryId >= 0"
+        :items="specialities"
+        :selectedItem="specialityId"
+        @itemClicked="onSpecialityChanged"
+      />
     </div>
-    <button :disabled="specialityId < 0">
+    <button
+      :disabled="specialityId < 0"
+      @click="$emit('search', groupId, categoryId, specialityId)"
+    >
       <i class="icofont-search-1"></i>
       <span>검색</span>
     </button>
@@ -57,60 +74,19 @@ export default {
 // 군별
 function getGroupData() {
   // Dummy Data
-  return [{
-    name: "육군",
-    id: 0
-  },
-  {
-    name: "해군",
-    id: 1
-  },
-  {
-    name: "공군",
-    id: 2
-  },
-  {
-    name: "해병대",
-    id: 3
-  }];
+  return require("../../data/group.json");
 }
 
 function getCategoryData(groupId) {
-  if(groupId === -1) return null;
-  
-  return [{
-    name: "기술행정병",
-    id: 1
-  },
-  {
-    name: "전문특기병",
-    id: 2
-  },
-  {
-    name: "아따따따따",
-    id: 3
-  }];
+  if (groupId === -1) return null;
+
+  return require("../../data/category.json");
 }
 
 function getSpecialityData(groupId, categoryId) {
-  if(groupId < 0 || categoryId < 0) return null;
-
-  return [{
-    name: "SW 개발병",
-    id: 0
-  },
-  {
-    name: "지식재산관리병",
-    id: 1
-  },
-  {
-    name: "어학병",
-    id: 2
-  },
-  {
-    name: "정보보호병",
-    id: 3
-  }]
+  if (groupId < 0 || categoryId < 0) return null;
+  // Dummy Data
+  return require("../../data/speciality.json");
 }
 </script>
 
@@ -131,10 +107,10 @@ button {
   display: block;
   margin: 15px auto 0;
   color: white;
-  background-color: #1565C0;
+  background-color: #1565c0;
 }
 
 button[disabled] {
-  background-color: #1565C055;
+  background-color: #1565c055;
 }
 </style>

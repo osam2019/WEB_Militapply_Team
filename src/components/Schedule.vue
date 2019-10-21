@@ -1,36 +1,32 @@
 <template>
   <v-sheet height="500">
-    <v-calendar
-      type="month"
-      :events="events"
-    ></v-calendar>
+    <v-calendar type="month" :events="events"></v-calendar>
   </v-sheet>
 </template>
 
 <script>
-
-  export default {
-    name:'Schedule',
-    data: () => ({
-      events: [
-        {
-          name: 'Vacation',
-          start: '2019-10-20',
-          end: '2019-10-30',
-        },
-        {
-          name: 'Meeting',
-         start: '2019-10-22',
-          end: '2019-10-27',
-        },
-        {
-          name: '30th Birthday',
-          start: '2019-10-17',
-          end: '2019-10-30',
-        },
-      ],
-    }),
-  }
+export default {
+  name: "Schedule",
+  data: () => ({
+    events: [
+      {
+        name: "Vacation",
+        start: "2019-10-20",
+        end: "2019-10-30"
+      },
+      {
+        name: "Meeting",
+        start: "2019-10-22",
+        end: "2019-10-27"
+      },
+      {
+        name: "30th Birthday",
+        start: "2019-10-17",
+        end: "2019-10-30"
+      }
+    ]
+  })
+};
 </script>
 
 <!--
