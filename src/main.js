@@ -2,7 +2,6 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import App from "./App.vue";
 import ElementUI from "element-ui";
-import "vuetify/dist/vuetify.min.css";
 import DashBoard from "./components/DashBoard.vue";
 import SearchPage from "./components/SearchPage.vue";
 import Schedule from "./components/Schedule.vue";
