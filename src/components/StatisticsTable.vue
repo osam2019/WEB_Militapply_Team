@@ -21,12 +21,12 @@ export default {
   name: "StatisticsTable",
   props: {
     icon: {
-      type: String | false,
+      type: [String, Boolean],
       default: false
     },
     tableData: Array,
     title: {
-      type: String | false,
+      type: String,
       required: true
     }
   }
