@@ -1,31 +1,41 @@
 <template>
   <section class="page-tabs-container">
-    <el-tabs style="min-height: 350px" v-model="activeName" class="tabs" @tab-click="handleClick">
+    <el-tabs
+      style="min-height: 350px"
+      v-model="activeName"
+      class="tabs"
+      @tab-click="handleClick"
+    >
       <el-tab-pane label="전체" name="all">
         <ul>
-          <li v-for="post in allPosts" :key="post.id" class="post-item">
+          <li v-for="post in slicedAllPosts" :key="post.id" class="post-item">
             {{ post.title }}
           </li>
         </ul>
       </el-tab-pane>
       <el-tab-pane label="공지" name="notice">
         <ul>
-          <li v-for="post in noticePosts" :key="post.id" class="post-item">
+          <li v-for="post in slicedNoticePosts" :key="post.id" class="post-item">
             {{ post.title }}
           </li>
         </ul>
       </el-tab-pane>
       <el-tab-pane label="정보" name="info">
         <ul>
-          <li v-for="post in informationPosts" :key="post.id" class="post-item">
+          <li v-for="post in slicedInformationPosts" :key="post.id" class="post-item">
             {{ post.title }}
           </li>
         </ul>
       </el-tab-pane>
     </el-tabs>
-    <el-pagination layout="prev, pager, next"
-                   v-if="pagination"
-                   :total="itemTotal"/>
+    <el-pagination
+      layout="prev, pager, next"
+      v-if="pagination"
+      :page-size="max"
+      :total="itemTotal"
+      :current-page="currentPage + 1"
+      @current-change="handleCurrentChange"
+    />
   </section>
 </template>
 <script>
@@ -55,21 +65,33 @@ export default {
   computed: {
     allPosts() {
       return [...this.posts]
-        .sort((v1, v2) => new Date(v1.time) - new Date(v2.time))
-        .slice(this.currentPage * this.max, this.max);
+        .sort((v1, v2) => new Date(v1.time) - new Date(v2.time));
     },
     noticePosts() {
       return [...this.posts]
         .filter(v => v.type === "notice")
-        .sort((v1, v2) => new Date(v1.time) - new Date(v2.time))
-        .slice(this.currentPage * this.max, this.max);
+        .sort((v1, v2) => new Date(v1.time) - new Date(v2.time));
     },
     informationPosts() {
       return [...this.posts]
         .filter(v => v.type === "information")
-        .sort((v1, v2) => new Date(v1.time) - new Date(v2.time))
-        .slice(this.currentPage * this.max, this.max);
-    }
+        .sort((v1, v2) => new Date(v1.time) - new Date(v2.time));
+    },
+    slicedAllPosts() {
+      const start = this.currentPage * this.max;
+      return [...this.allPosts]
+              .slice(start, start + this.max);
+    },
+    slicedNoticePosts() {
+      const start = this.currentPage * this.max;
+      return [...this.noticePosts]
+              .slice(start, start + this.max);
+    },
+    slicedInformationPosts() {
+      const start = this.currentPage * this.max;
+      return [...this.informationPosts]
+              .slice(start, start + this.max);
+    },
   },
   methods: {
     handleClick(tab) {
@@ -84,6 +106,11 @@ export default {
           this.itemTotal = this.informationPosts.length;
           break;
       }
+
+      this.currentPage = 0;
+    },
+    handleCurrentChange(page) {
+      this.currentPage = page - 1;
     }
   }
 };
