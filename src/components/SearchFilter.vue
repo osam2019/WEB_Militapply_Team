@@ -3,25 +3,26 @@
     <div class="filter-container">
       <FilterList
         :items="groups"
-        :selectedItem="groupId"
+        :selectedItem="selectedGroup"
         @itemClicked="onGroupChanged"
       />
       <FilterList
-        v-if="groupId >= 0"
+        :class="{ 'list-disabled': selectedGroup < 0 }"
         :items="categories"
-        :selectedItem="categoryId"
+        :selectedItem="selectedCategory"
         @itemClicked="onCategoryChanged"
       />
       <FilterList
-        v-if="categoryId >= 0"
+        :class="{ 'list-disabled': selectedCategory < 0 }"
         :items="specialities"
-        :selectedItem="specialityId"
+        :selectedItem="selectedSpeciality"
         @itemClicked="onSpecialityChanged"
       />
     </div>
     <button
-      :disabled="specialityId < 0"
-      @click="$emit('search', groupId, categoryId, specialityId)"
+            class="btn-search"
+            :disabled="selectedSpeciality < 0"
+      @click="onSearch"
     >
       <i class="icofont-search-1"></i>
       <span>검색</span>
@@ -39,34 +40,72 @@ export default {
   components: {
     FilterList
   },
+  props: {
+    groupId: {
+      type: Number,
+      default: -1
+    },
+    categoryId: {
+      type: Number,
+      default: -1
+    },
+    specialityId: {
+      type: Number,
+      default: -1
+    }
+  },
   data() {
     return {
       groups,
-      groupId: -1,
-      categoryId: -1,
-      specialityId: -1
+      selectedGroup: this.groupId,
+      selectedCategory: this.categoryId,
+      selectedSpeciality: this.specialityId
     };
   },
   computed: {
     categories() {
-      return getCategoryData(this.groupId);
+      return getCategoryData(this.selectedGroup);
     },
     specialities() {
-      return getSpecialityData(this.groupId, this.categoryId);
+      return getSpecialityData(this.selectedGroup, this.selectedCategory);
     }
   },
   methods: {
     onGroupChanged(groupId) {
-      this.specialityId = -1;
-      this.categoryId = -1;
-      this.groupId = groupId;
+      this.selectedSpeciality = -1;
+      this.selectedCategory = -1;
+      this.selectedGroup = groupId;
     },
     onCategoryChanged(categoryId) {
-      this.specialityId = -1;
-      this.categoryId = categoryId;
+      if (this.selectedGroup < 0) return;
+
+      this.selectedSpeciality = -1;
+      this.selectedCategory = categoryId;
     },
     onSpecialityChanged(specialityId) {
-      this.specialityId = specialityId;
+      if (this.selectedGroup < 0 || this.selectedCategory < 0) return;
+
+      this.selectedSpeciality = specialityId;
+    },
+    onSearch() {
+      if(this.selectedGroup === this.groupId
+      && this.selectedCategory === this.categoryId
+      && this.selectedSpeciality === this.specialityId) return;
+
+      this.$router.push(this.calcUrl());
+    },
+    calcUrl() {
+      let url = '/search';
+      if(this.selectedGroup < 0) return url;
+      url += '/group/' + this.selectedGroup;
+
+      if(this.selectedCategory < 0) return url;
+      url += '/category/' + this.selectedCategory;
+
+      if(this.selectedSpeciality < 0) return url;
+      url += '/speciality/' + this.selectedSpeciality;
+
+      return url;
     }
   }
 };
@@ -93,7 +132,7 @@ function getSpecialityData(groupId, categoryId) {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .filter-container {
-  width: 90%;
+  width: 1000px;
   height: 300px;
   margin: 0 auto;
   overflow-x: auto;
@@ -113,4 +152,12 @@ button {
 button[disabled] {
   background-color: #1565c055;
 }
+
+.list-disabled {
+  opacity: 0.3;
+}
+
+  .btn-search {
+    border: 0;
+  }
 </style>

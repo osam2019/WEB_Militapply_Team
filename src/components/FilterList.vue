@@ -24,6 +24,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 ul {
+  box-sizing: border-box;
   display: inline-block;
   width: 300px;
   height: 100%;

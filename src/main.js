@@ -7,6 +7,7 @@ import SearchPage from "./components/SearchPage.vue";
 import Schedule from "./components/Schedule.vue";
 import Information from "./components/Information";
 import StatisticsPage from "./components/StatisticsPage";
+import 'reset-css';
 
 Vue.config.productionTip = false;
 
@@ -16,7 +17,11 @@ Vue.use(ElementUI);
 const routes = [
     { path: "/", component: DashBoard },
     { path: "/search", component: SearchPage },
+    { path: "/search/group/:group", component: SearchPage },
+    { path: "/search/group/:group/category/:category", component: SearchPage },
+    { path: "/search/group/:group/category/:category/speciality/:speciality", component: SearchPage },
     { path: "/info", component: Information },
+    { path: "/info/:id", component: Information },
     { path: "/stats", component: StatisticsPage },
     { path: "/apply", component: DashBoard },
     { path: "/schedule", component: Schedule }
