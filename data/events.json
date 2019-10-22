@@ -1,0 +1,15 @@
+[
+  {
+    "title": "SW 개발병 지원",
+    "start": "2019-10-22T14:30:00",
+    "extendedProps": {
+      "status": "done"
+    }
+  },
+  {
+    "title": "Birthday Party",
+    "start": "2019-10-22T07:00:00",
+    "backgroundColor": "green",
+    "borderColor": "green"
+  }
+]
