@@ -13,19 +13,19 @@ Vue.use(VueRouter);
 Vue.use(Vuetify);
 
 const routes = [
-  { path: "/", component: DashBoard },
-  { path: "/search", component: SearchPage },
-  { path: "/info", component: DashBoard },
-  { path: "/stats", component: DashBoard },
-  { path: "/apply", component: DashBoard },
-  { path: "/schedule", component: Schedule }
+    { path: "/", component: DashBoard },
+    { path: "/search", component: SearchPage },
+    { path: "/info", component: DashBoard },
+    { path: "/stats", component: DashBoard },
+    { path: "/apply", component: DashBoard },
+    { path: "/schedule", component: Schedule }
 ];
 
 const router = new VueRouter({
-  routes
+    routes
 });
 
 new Vue({
-  router,
-  render: h => h(App)
+    router,
+    render: h => h(App)
 }).$mount("#app");
