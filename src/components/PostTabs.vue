@@ -73,7 +73,7 @@ export default {
 .tabs {
   border: 1px solid #aaa;
   height: 350px;
-  padding: 15px;
+  padding: 5px 15px;
 }
 
 .post-item {

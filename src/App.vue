@@ -5,14 +5,11 @@
     </router-link>
     <MenuBar :menu="menu" />
     <router-view />
-
-    <Schedule />
   </div>
 </template>
 
 <script>
 import MenuBar from "./components/MenuBar";
-import Schedule from "./components/Schedule";
 
 // Data for MenuBar
 const menu = [
@@ -36,8 +33,7 @@ const menu = [
 export default {
   name: "App",
   components: {
-    MenuBar,
-    Schedule
+    MenuBar
   },
   data() {
     return {

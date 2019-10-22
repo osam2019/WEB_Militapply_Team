@@ -1,0 +1,27 @@
+[
+  {
+    "order": 1,
+    "name": "SW 개발병",
+    "value": 200000
+  },
+  {
+    "order": 2,
+    "name": "M/W 장비 운용병",
+    "value": 20000
+  },
+  {
+    "order": 3,
+    "name": "의경",
+    "value": 2000
+  },
+  {
+    "order": 4,
+    "name": "카투사",
+    "value": 1000
+  },
+  {
+    "order": 5,
+    "name": "공익",
+    "value": 500
+  }
+]
