@@ -1,0 +1,31 @@
+[{
+  "id": 10,
+  "title": "이거슨 공지입니다.",
+  "content": "내용입니다다다다ㅏ다닫",
+  "type": "notice",
+  "time": "Tue, 22 Oct 2019 06:55:48 GMT"
+}, {
+  "id": 9,
+  "title": "이거슨 정보입니다.",
+  "content": "내용입니다다다다ㅏ다닫아아아아ㅏㅇ",
+  "type": "information",
+  "time": "Mon, 21 Oct 2019 06:55:48 GMT"
+}, {
+  "id": 8,
+  "title": "이거슨 또 정보입니다.",
+  "content": "내용입니다다다다ㅏ다닫아아아아ㅏㅇ",
+  "type": "information",
+  "time": "Mon, 21 Oct 2019 06:56:48 GMT"
+}, {
+  "id": 7,
+  "title": "이거슨 또오 정보입니다.",
+  "content": "내용입니다다다다ㅏ다닫아아아아ㅏㅇ",
+  "type": "information",
+  "time": "Sat, 19 Oct 2019 06:55:48 GMT"
+},{
+  "id": 6,
+  "title": "이거슨 공2지2입니다.",
+  "content": "내용입니다다다다ㅏ다닫",
+  "type": "notice",
+  "time": "Tue, 22 Oct 2019 06:55:48 GMT"
+}]

@@ -47,6 +47,14 @@ export default {
       specialityId: -1
     };
   },
+  computed: {
+    categories() {
+      return getCategoryData(this.groupId);
+    },
+    specialities() {
+      return getSpecialityData(this.groupId, this.categoryId);
+    }
+  },
   methods: {
     onGroupChanged(groupId) {
       this.specialityId = -1;
@@ -59,14 +67,6 @@ export default {
     },
     onSpecialityChanged(specialityId) {
       this.specialityId = specialityId;
-    }
-  },
-  computed: {
-    categories() {
-      return getCategoryData(this.groupId);
-    },
-    specialities() {
-      return getSpecialityData(this.groupId, this.categoryId);
     }
   }
 };
