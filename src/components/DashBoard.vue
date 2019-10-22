@@ -12,7 +12,7 @@
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12">
-        <StatisticsTable :table-data="watchingData" />
+        <StatisticsTable title="현재 사람들이 보고 있는 특기" icon="icofont-eye-alt" :table-data="watchingData" />
       </el-col>
       <el-col :span="12">
         <Schedule />

@@ -7,6 +7,7 @@ import DashBoard from "./components/DashBoard.vue";
 import SearchPage from "./components/SearchPage.vue";
 import Schedule from "./components/Schedule.vue";
 import Information from "./components/Information";
+import StatisticsPage from "./components/StatisticsPage";
 
 Vue.config.productionTip = false;
 
@@ -17,7 +18,7 @@ const routes = [
     { path: "/", component: DashBoard },
     { path: "/search", component: SearchPage },
     { path: "/info", component: Information },
-    { path: "/stats", component: DashBoard },
+    { path: "/stats", component: StatisticsPage },
     { path: "/apply", component: DashBoard },
     { path: "/schedule", component: Schedule }
 ];
