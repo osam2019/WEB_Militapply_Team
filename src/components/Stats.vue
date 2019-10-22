@@ -29,7 +29,7 @@ export default {
         },
         ticks: {
           beginAtZero: true,
-          max: 10,
+          max: 5,
           min: 0,
           stepSize: 1
         }
