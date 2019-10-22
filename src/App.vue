@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-link to="/">
-      <img src="./assets/logo.png" alt="logo"/>
+      <img id="logo" src="./assets/logo.png" alt="logo"/>
     </router-link>
     <MenuBar :menu="menu" />
     <router-view />
@@ -57,4 +57,9 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+  #logo {
+    width: 200px;
+  }
+
 </style>
