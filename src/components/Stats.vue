@@ -12,7 +12,7 @@ export default {
     async mounted() {
         const data = await require("../../data/speciality_detail");
 
-        data.stats.datasets[0].backgroundColor = "rgba(231, 76, 50, 0.7)";
+        data.stats.datasets[0].backgroundColor = "rgba(231, 76, 50, 0.8)";
         data.stats.datasets[0].borderWidth = 0;
 
         Chart.defaults.global.defaultFontSize = 15;
