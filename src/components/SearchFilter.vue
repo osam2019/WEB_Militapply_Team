@@ -113,19 +113,19 @@ export default {
 // 군별
 function getGroupData() {
   // Dummy Data
-  return require("../../data/group.json");
+  return require("../../data/group");
 }
 
 function getCategoryData(groupId) {
   if (groupId === -1) return null;
 
-  return require("../../data/category.json");
+  return require("../../data/category");
 }
 
 function getSpecialityData(groupId, categoryId) {
   if (groupId < 0 || categoryId < 0) return null;
   // Dummy Data
-  return require("../../data/speciality.json");
+  return require("../../data/speciality");
 }
 </script>
 

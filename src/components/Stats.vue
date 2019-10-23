@@ -1,42 +1,49 @@
 <script>
 import Chart from "chart.js";
-import { Radar } from "vue-chartjs";
+import { Radar, mixins } from "vue-chartjs";
+const { reactiveProp } = mixins;
 
 export default {
   extends: Radar,
-  props: {
-    groupId: Number,
-    categoryId: Number,
-    specialityId: Number
-  },
+
+  mixins: [reactiveProp],
+
   async mounted() {
-    const data = await require("../../data/speciality_detail");
-
-    data.stats.datasets[0].backgroundColor = "rgba(231, 76, 50, 0.8)";
-    data.stats.datasets[0].borderWidth = 0;
-
     Chart.defaults.global.defaultFontSize = 15;
-    this.renderChart(data.stats, {
-      elements: {
-        point: {
-          radius: 0
-        }
-      },
+    Chart.defaults.global.elements.point.radius = 0;
+    Chart.defaults.scale.ticks.beginAtZero = true;
+    Chart.defaults.scale.ticks.max = 5;
+    Chart.defaults.scale.ticks.min = 0;
+    Chart.defaults.scale.ticks.stepSize = 1;
+      Chart.defaults.global.legend.display = false;
+
+    this.renderChart(this.chartData, {
       scale: {
         pointLabels: {
           fontSize: 13,
-          fontWeight: "bold"
-        },
-        ticks: {
-          beginAtZero: true,
-          max: 5,
-          min: 0,
-          stepSize: 1
+          fontStyle: "bold"
         }
       }
     });
+  },
+
+  watch: {
+    chartData() {
+      this.renderChart(this.chartData, {
+        scale: {
+          pointLabels: {
+            fontSize: 13,
+            fontStyle: "bold"
+          }
+        }
+      });
+    }
   }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+#radar-chart {
+  margin: 15px auto;
+}
+</style>
