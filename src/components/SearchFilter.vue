@@ -141,7 +141,7 @@ function getSpecialityData(groupId, categoryId) {
 }
 
 button {
-  width: 80%;
+  width: 900px;
   line-height: 2rem;
   display: block;
   margin: 15px auto 0;
