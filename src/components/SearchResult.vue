@@ -23,31 +23,29 @@
       <el-col :span="11">
         <h1><u>복무자 한줄평</u></h1>
         <div class="quote-container" v-for="item in comments" :key="item">
-          <i
-            class="icofont-quote-left"
-            style="float: left;"
-          ></i>
-          <i
-            class="icofont-quote-right"
-            style="float: right;"
-          ></i>
+          <i class="icofont-quote-left" style="float: left;"></i>
+          <i class="icofont-quote-right" style="float: right;"></i>
           <blockquote>
             {{ item }}
           </blockquote>
         </div>
       </el-col>
     </el-row>
-    <article></article>
+    <el-row>
+      <SpecialityDetail :id="specialityId" />
+    </el-row>
   </section>
 </template>
 
 <script>
 import Stats from "./Stats.vue";
+import SpecialityDetail from "./SpecialityDetail";
 
 export default {
   name: "SearchResult",
   components: {
-    Stats
+    Stats,
+    SpecialityDetail
   },
   props: {
     groupId: Number,
