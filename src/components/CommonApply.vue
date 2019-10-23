@@ -50,7 +50,7 @@
       </el-table-column>
       <el-table-column align="center" label="졸업구분" prop="graduate">
         <template slot-scope="scope">
-          <el-select v-model="scope.row.grade" placeholder="선택" value="">
+          <el-select v-model="scope.row.graduation" placeholder="선택" value="">
             <el-option
               v-for="item in ['재학', '수료', '졸업', '중퇴']"
               :key="item"
