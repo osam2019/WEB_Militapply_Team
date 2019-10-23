@@ -9,6 +9,7 @@ import Information from "./components/Information";
 import StatisticsPage from "./components/StatisticsPage";
 import 'reset-css';
 import axios from 'axios';
+import MyApply from "./components/MyApply";
 //
 // const jsonServer = require('json-server');
 // const server = jsonServer.create();
@@ -40,7 +41,7 @@ const routes = [
     { path: "/info/:id", component: Information },
     { path: "/stats", component: StatisticsPage },
     { path: "/apply", component: DashBoard },
-    { path: "/schedule", component: Schedule }
+    { path: "/schedule", component: Schedule },
     { path: "/myapply", component: MyApply }
 
 ];
