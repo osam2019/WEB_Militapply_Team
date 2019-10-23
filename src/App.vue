@@ -5,6 +5,9 @@
     </router-link>
     <MenuBar :menu="menu" />
     <router-view />
+    <el-footer>
+      <p>© Copyright 2019. All Rights Reserved.</p>
+    </el-footer>
   </div>
 </template>
 
@@ -57,4 +60,16 @@ export default {
 #logo {
   width: 200px;
 }
+
+  .el-footer {
+    margin-top: 50px;
+    height: 60px;
+    background-color: #2c3e50;
+    color: white;
+  }
+
+  .el-footer > p {
+    line-height: 60px;
+    font-size: 0.8rem;
+  }
 </style>
