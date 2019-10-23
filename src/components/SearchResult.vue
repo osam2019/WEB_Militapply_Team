@@ -32,7 +32,7 @@
       </el-col>
     </el-row>
     <el-row v-if="specialityId >= 0">
-      <SpecialityDetail
+      <MarkdownViewer
         :src="specialityData.detail ? specialityData.detail : '/md/no-data.md'"
       />
     </el-row>
@@ -41,13 +41,13 @@
 
 <script>
 import Stats from "./Stats.vue";
-import SpecialityDetail from "./SpecialityDetail";
+import MarkdownViewer from "./MarkdownViewer";
 
 export default {
   name: "SearchResult",
   components: {
     Stats,
-    SpecialityDetail
+    MarkdownViewer
   },
   props: {
     specialityId: Number
@@ -60,7 +60,9 @@ export default {
     };
   },
   mounted() {
+    if(this.specialityId >= 0) {
       this.getSpecialities();
+    }
   },
   watch: {
     specialityId() {
