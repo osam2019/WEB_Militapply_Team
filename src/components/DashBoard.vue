@@ -41,11 +41,13 @@ export default {
       bannerContents: [
         {
           src: "https://picsum.photos/id/488/300/350",
-          alt: "banner1"
+          alt: "banner1",
+          url: "/info/46"
         },
         {
           src: "https://picsum.photos/id/321/300/350",
-          alt: "banner2"
+          alt: "banner2",
+          url: "/info/8"
         }
       ],
       watchingData: require("../../data/watching")

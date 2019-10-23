@@ -1,9 +1,7 @@
 <template>
   <el-main>
     <el-page-header @back="goBack" title="이전으로" :content="postData.title" />
-    <MarkdownViewer
-      :src="postData.contentSrc ? postData.contentSrc : '/md/no-data.md'"
-    />
+    <MarkdownViewer :src="postData.contentSrc ? postData.contentSrc : ''" />
   </el-main>
 </template>
 
@@ -43,7 +41,10 @@ export default {
     getPost() {
       // Get Post
       this.$http.get(`/posts/${this.postId}`).then(response => {
-        this.postData = response.data;
+          this.postData = response.data;
+          if (!this.postData.contentSrc) {
+              this.postData.contentSrc = '/md/no-data.md';
+          }
       });
     },
     goBack() {
@@ -59,13 +60,13 @@ export default {
   margin: 0 auto;
 }
 
-    .el-page-header {
-        padding: 15px;
-        margin-bottom: 30px;
-        border: 1px solid #dedede;
-    }
+.el-page-header {
+  padding: 15px;
+  margin-bottom: 30px;
+  border: 1px solid #dedede;
+}
 
-    .markdown-body {
-        min-height: 500px;
-    }
+.markdown-body {
+  min-height: 500px;
+}
 </style>

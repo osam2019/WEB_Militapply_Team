@@ -5,8 +5,8 @@
     :auto-play="true"
     :play-speed="3000"
   >
-    <slide v-for="c in contents" :key="c.alt">
-      <img :src="c.src" :alt="c.alt"/>
+    <slide v-for="c in contents" :key="c.alt" style="cursor: pointer">
+      <router-link :to="c.url"><img :src="c.src" :alt="c.alt"></router-link>
     </slide>
 
     <hooper-pagination slot="hooper-addons" />
@@ -27,6 +27,8 @@ export default {
   props: {
     height: Number,
     contents: Array
+  },
+  methods: {
   }
 };
 </script>

@@ -20,11 +20,13 @@ export default {
       bannerContents: [
         {
           src: "https://picsum.photos/id/884/1000/200",
-          alt: "wide1"
+          alt: "wide1",
+          url: "/info/8"
         },
         {
           src: "https://picsum.photos/id/123/1000/200",
-          alt: "wide2"
+          alt: "wide2",
+          url: "/info/36"
         }
       ],
       posts: require("../../data/post")
