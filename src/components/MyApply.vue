@@ -65,7 +65,7 @@
       </div>
       <div class="type6" v-if="menuType === 6">
         <el-alert title="주의" type="error" show-icon> </el-alert>
-        <el-card class="box-card">
+        <el-card class="box-card" style="margin: 30px auto">
           <div slot="header" class="clearfix">
             <span>회원 탈퇴</span>
           </div>
