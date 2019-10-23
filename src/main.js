@@ -41,6 +41,8 @@ const routes = [
     { path: "/stats", component: StatisticsPage },
     { path: "/apply", component: DashBoard },
     { path: "/schedule", component: Schedule }
+    { path: "/myapply", component: MyApply }
+
 ];
 
 const router = new VueRouter({
