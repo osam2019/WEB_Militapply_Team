@@ -8,23 +8,42 @@
     >
       <el-tab-pane label="전체" name="all">
         <ul>
-          <li v-for="post in slicedAllPosts" :key="post.id" class="post-item">
-            {{ post.title }}
-          </li>
+          <router-link
+            :to="`/info/${post.id}`"
+            v-for="post in slicedAllPosts"
+            :key="post.id"
+            class="post-item"
+          >
+            <li>
+              {{ post.title }}
+            </li>
+          </router-link>
         </ul>
       </el-tab-pane>
       <el-tab-pane label="공지" name="notice">
         <ul>
-          <li v-for="post in slicedNoticePosts" :key="post.id" class="post-item">
-            {{ post.title }}
-          </li>
+          <router-link
+            :to="`/info/${post.id}`"
+            v-for="post in slicedNoticePosts"
+            :key="post.id"
+            class="post-item"
+          >
+            <li>
+              {{ post.title }}
+            </li>
+          </router-link>
         </ul>
       </el-tab-pane>
       <el-tab-pane label="정보" name="info">
         <ul>
-          <li v-for="post in slicedInformationPosts" :key="post.id" class="post-item">
+          <router-link
+            :to="`/info/${post.id}`"
+            v-for="post in slicedInformationPosts"
+            :key="post.id"
+            class="post-item"
+          >
             {{ post.title }}
-          </li>
+          </router-link>
         </ul>
       </el-tab-pane>
     </el-tabs>
@@ -64,8 +83,9 @@ export default {
   },
   computed: {
     allPosts() {
-      return [...this.posts]
-        .sort((v1, v2) => new Date(v1.time) - new Date(v2.time));
+      return [...this.posts].sort(
+        (v1, v2) => new Date(v1.time) - new Date(v2.time)
+      );
     },
     noticePosts() {
       return [...this.posts]
@@ -79,19 +99,16 @@ export default {
     },
     slicedAllPosts() {
       const start = this.currentPage * this.max;
-      return [...this.allPosts]
-              .slice(start, start + this.max);
+      return [...this.allPosts].slice(start, start + this.max);
     },
     slicedNoticePosts() {
       const start = this.currentPage * this.max;
-      return [...this.noticePosts]
-              .slice(start, start + this.max);
+      return [...this.noticePosts].slice(start, start + this.max);
     },
     slicedInformationPosts() {
       const start = this.currentPage * this.max;
-      return [...this.informationPosts]
-              .slice(start, start + this.max);
-    },
+      return [...this.informationPosts].slice(start, start + this.max);
+    }
   },
   methods: {
     handleClick(tab) {
@@ -123,6 +140,9 @@ export default {
 }
 
 .post-item {
+  display: block;
+  text-decoration: none;
+  color: black;
   text-align: left;
   padding: 10px 5px;
   border-bottom: 1px solid #eee;
