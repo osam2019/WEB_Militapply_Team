@@ -5,10 +5,10 @@
     </h4>
     <el-table :data="tableData" style="width: 100%" :show-header="false">
       <el-table-column prop="order" width="100"> </el-table-column>
-      <el-table-column prop="name" width="180"> </el-table-column>
-      <el-table-column prop="value">
+      <el-table-column prop="name"> </el-table-column>
+      <el-table-column prop="value" width="100">
         <template slot-scope="scope">
-          <i v-if="icon" :class="icon"></i>
+          <i v-if="icon" :class="icon" style="margin-right: 5px;"></i>
           <span>{{tableData[scope.$index].value}}</span>
         </template>
       </el-table-column>
@@ -32,3 +32,6 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+</style>

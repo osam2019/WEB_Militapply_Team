@@ -11,7 +11,7 @@
     <router-link to="/apply">
       <button>
         <i class="icofont-file-text"></i>
-        <span>지원하기</span>
+        <span>내 지원정보</span>
       </button>
     </router-link>
   </nav>
@@ -79,7 +79,7 @@ img {
 button {
   box-sizing: border-box;
   cursor: pointer;
-  width: 120px;
+  width: 140px;
   height: 35px;
   background-color: rgb(231, 76, 60);
   color: white;
