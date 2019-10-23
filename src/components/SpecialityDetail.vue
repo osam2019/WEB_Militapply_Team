@@ -1,27 +1,27 @@
 <template>
-    <Markdown class="markdown-body"/>
+  <Markdown class="markdown-body" :source="this.src" />
 </template>
 
 <script>
-    import Markdown from '../../data/md/test.md';
-    import 'github-markdown-css';
+import Markdown from "../../public/md/test.md";
+import "github-markdown-css";
 
-    export default {
-        name: "SpecialityDetail",
-        components: {
-            Markdown
-        },
-        props: {
-            id: {
-                type: Number,
-                required: true
-            }
-        }
+export default {
+  name: "SpecialityDetail",
+  components: {
+    Markdown
+  },
+  props: {
+    src: {
+      type: String,
+      required: true
     }
+  }
+};
 </script>
 
 <style scoped>
-    .markdown-body {
-        text-align: left;
-    }
+.markdown-body {
+  text-align: left;
+}
 </style>

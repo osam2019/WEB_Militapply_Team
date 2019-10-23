@@ -3,13 +3,9 @@
     <SearchFilter
             :groupId="groupId"
             :categoryId="categoryId"
-            :specialityId="specialityId"
-            @search="doSearch" />
+            :specialityId="specialityId" />
     <SearchResult
-      :groupId="groupId"
-      :categoryId="categoryId"
-      :specialityId="specialityId"
-    />
+      :specialityId="specialityId" />
   </main>
 </template>
 
@@ -29,13 +25,6 @@ export default {
       categoryId: this.$route.params.category ? parseInt(this.$route.params.category) : -1,
       specialityId: this.$route.params.speciality ? parseInt(this.$route.params.speciality) : -1
     };
-  },
-  methods: {
-    doSearch(groupId, categoryId, specialityId) {
-      this.groupId = groupId;
-      this.categoryId = categoryId;
-      this.specialityId = specialityId;
-    }
   },
   watch: {
     '$route' (to) {

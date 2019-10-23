@@ -32,7 +32,7 @@
       </el-col>
     </el-row>
     <el-row>
-      <SpecialityDetail :id="specialityId" />
+      <SpecialityDetail :src="specialityData.detail ? specialityData.detail : ''" />
     </el-row>
   </section>
 </template>
@@ -48,25 +48,35 @@ export default {
     SpecialityDetail
   },
   props: {
-    groupId: Number,
-    categoryId: Number,
     specialityId: Number
   },
   data() {
-    const d = require("../../data/speciality_detail");
     return {
-      specialityData: d,
+      specialityData: {},
       selectedUnitIdx: 0
     };
   },
+  mounted() {
+    // TODO: 중복 코드 (SearchFilter.vue)
+    // Get Specialities
+    this.$http.get(`/specialities/${this.specialityId}`).then(response => {
+      this.specialityData = response.data;
+    });
+  },
   computed: {
     comments() {
+      if(!this.specialityData.hasOwnProperty('comments')) return [];
+
       return this.specialityData.comments;
     },
     units() {
+      if(!this.specialityData.hasOwnProperty('stats')) return [];
+
       return this.specialityData.stats.datasets;
     },
     selectedUnit() {
+      if(!this.specialityData.hasOwnProperty('stats')) return {};
+
       const data = { ...this.specialityData.stats };
       data.datasets = [data.datasets[this.selectedUnitIdx]];
 

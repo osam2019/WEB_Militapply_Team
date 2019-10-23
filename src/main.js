@@ -8,6 +8,10 @@ import Schedule from "./components/Schedule.vue";
 import Information from "./components/Information";
 import StatisticsPage from "./components/StatisticsPage";
 import 'reset-css';
+import axios from 'axios'
+
+axios.defaults.baseURL = "http://localhost:3000";
+Vue.prototype.$http = axios;
 
 Vue.config.productionTip = false;
 

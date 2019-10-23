@@ -1,0 +1,261 @@
+{
+  "groups": [
+    { "name": "육군", "id": 1 },
+    { "name": "해군", "id": 2 },
+    { "name": "해병대", "id": 3 },
+    { "name": "공군", "id": 4 }
+  ],
+  "categories": [
+    { "id": 1, "name": "기술행정병", "groupId": 1 },
+    { "id": 2, "name": "취업맞춤특기병", "groupId": 1 },
+    { "id": 3, "name": "유급지원병", "groupId": 1 },
+    { "id": 4, "name": "전문특기병", "groupId": 1 },
+    { "id": 5, "name": "어학병", "groupId": 1 },
+    { "id": 6, "name": "카투사", "groupId": 1 },
+    { "id": 7, "name": "동반입대병(일반)", "groupId": 1 },
+    { "id": 8, "name": "동반입대병(다문화)", "groupId": 1 },
+    { "id": 9, "name": "직계가족복무부대병", "groupId": 1 },
+    { "id": 10, "name": "연고지복무병", "groupId": 1 },
+    { "id": 11, "name": "기술병", "groupId": 2 },
+    { "id": 12, "name": "동반입대병", "groupId": 2 },
+    { "id": 13, "name": "유급지원병", "groupId": 2 },
+    { "id": 14, "name": "취업맞춤특기병", "groupId": 2 },
+    { "id": 15, "name": "기술병", "groupId": 3 },
+    { "id": 16, "name": "유급지원병", "groupId": 3 },
+    { "id": 17, "name": "취업맞춤특기병", "groupId": 3 },
+    { "id": 18, "name": "기술병", "groupId": 4 },
+    { "id": 19, "name": "유급지원병", "groupId": 4 },
+    { "id": 20, "name": "취업맞춤특기병", "groupId": 4 }
+  ],
+  "specialities": [
+    {
+      "id": 1,
+      "detail": "/md/test.md",
+      "name": "특공병",
+      "categoryId": 4,
+      "stats": {
+        "labels": [
+          "정신적 업무강도",
+          "육체적 업무강도",
+          "야근",
+          "전공적합",
+          "휴가",
+          "시간휙휙",
+          "자유도"
+        ],
+        "datasets": [
+          {
+            "label": "부대 평균",
+            "data": [3.5, 2, 2, 5, 4, 0.1, 5]
+          },
+          {
+            "label": "국군지휘통신사령부",
+            "data": [2, 3, 4, 5, 0, 2, 3]
+          },
+          {
+            "label": "4284부대",
+            "data": [5, 4, 3, 2, 1, 2, 3]
+          },
+          {
+            "label": "육군본부",
+            "data": [3.5, 2.1, 2.2, 0.3, 4, 5, 5]
+          }
+        ]
+      },
+      "comments": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac.",
+        "Lorem ipsum dolor sit amet, consectetur"
+      ]
+    },
+    {
+      "id": 2,
+      "detail": "/md/test.md",
+      "name": "체육학조교병",
+      "categoryId": 4
+    },
+    {
+      "id": 3,
+      "detail": "/md/test.md",
+      "name": "유해발굴기록병",
+      "categoryId": 4
+    },
+    { "id": 4, "detail": "/md/test.md", "name": "군마병", "categoryId": 4 },
+    { "id": 5, "detail": "/md/test.md", "name": "의장병", "categoryId": 4 },
+    {
+      "id": 6,
+      "detail": "/md/test.md",
+      "name": "훈련소조교병",
+      "categoryId": 4
+    },
+    { "id": 7, "detail": "/md/test.md", "name": "특전병", "categoryId": 4 },
+    { "id": 8, "detail": "/md/test.md", "name": "방송병", "categoryId": 4 },
+    { "id": 9, "detail": "/md/test.md", "name": "신호정보", "categoryId": 4 },
+    {
+      "id": 10,
+      "detail": "/md/test.md",
+      "name": "탐지분석병",
+      "categoryId": 4
+    },
+    {
+      "id": 11,
+      "detail": "/md/test.md",
+      "name": "드론운용및정비병",
+      "categoryId": 4
+    },
+    {
+      "id": 12,
+      "detail": "/md/test.md",
+      "name": "지형자료관리병",
+      "categoryId": 4
+    },
+    {
+      "id": 13,
+      "detail": "/md/test.md",
+      "name": "로더운전병",
+      "categoryId": 4
+    },
+    {
+      "id": 14,
+      "detail": "/md/test.md",
+      "name": "정보보호병",
+      "categoryId": 4
+    },
+    { "id": 15, "detail": "/md/test.md", "name": "S/W개발병", "categoryId": 4 },
+    {
+      "id": 16,
+      "detail": "/md/test.md",
+      "name": "대형기동헬기정비병",
+      "categoryId": 4
+    },
+    {
+      "id": 17,
+      "detail": "/md/test.md",
+      "name": "화생방시험병",
+      "categoryId": 4
+    },
+    {
+      "id": 18,
+      "detail": "/md/test.md",
+      "name": "방사능분석연구보조병",
+      "categoryId": 4
+    },
+    {
+      "id": 19,
+      "detail": "/md/test.md",
+      "name": "생물학시험병",
+      "categoryId": 4
+    },
+    {
+      "id": 20,
+      "detail": "/md/test.md",
+      "name": "대형버스운전병",
+      "categoryId": 4
+    },
+    {
+      "id": 21,
+      "detail": "/md/test.md",
+      "name": "구급차량운전병",
+      "categoryId": 4
+    },
+    { "id": 22, "detail": "/md/test.md", "name": "속기병", "categoryId": 4 },
+    {
+      "id": 23,
+      "detail": "/md/test.md",
+      "name": "지식재산관리병",
+      "categoryId": 4
+    },
+    {
+      "id": 24,
+      "detail": "/md/test.md",
+      "name": "특수임무헌병",
+      "categoryId": 4
+    },
+    {
+      "id": 25,
+      "detail": "/md/test.md",
+      "name": "MC승무헌병",
+      "categoryId": 4
+    },
+    { "id": 26, "detail": "/md/test.md", "name": "33경호병", "categoryId": 4 },
+    { "id": 27, "detail": "/md/test.md", "name": "수사헌병", "categoryId": 4 },
+    {
+      "id": 28,
+      "detail": "/md/test.md",
+      "name": "회계원가비용분석병",
+      "categoryId": 4
+    },
+    {
+      "id": 29,
+      "detail": "/md/test.md",
+      "name": "영상콘텐츠디자이너",
+      "categoryId": 4
+    },
+    {
+      "id": 30,
+      "detail": "/md/test.md",
+      "name": "그래픽디자이너",
+      "categoryId": 4
+    },
+    {
+      "id": 31,
+      "detail": "/md/test.md",
+      "name": "사진콘텐츠디자이너",
+      "categoryId": 4
+    },
+    {
+      "id": 32,
+      "detail": "/md/test.md",
+      "name": "군악병(목관악기)",
+      "categoryId": 4
+    },
+    {
+      "id": 33,
+      "detail": "/md/test.md",
+      "name": "군악병(금관악기)",
+      "categoryId": 4
+    },
+    {
+      "id": 34,
+      "detail": "/md/test.md",
+      "name": "군악병(타악기)",
+      "categoryId": 4
+    },
+    {
+      "id": 35,
+      "detail": "/md/test.md",
+      "name": "군악병(현악기)",
+      "categoryId": 4
+    },
+    {
+      "id": 36,
+      "detail": "/md/test.md",
+      "name": "군악병(국악)",
+      "categoryId": 4
+    },
+    {
+      "id": 37,
+      "detail": "/md/test.md",
+      "name": "군악병(실용음악)",
+      "categoryId": 4
+    },
+    {
+      "id": 38,
+      "detail": "/md/test.md",
+      "name": "유해발굴감식병",
+      "categoryId": 4
+    },
+    {
+      "id": 39,
+      "detail": "/md/test.md",
+      "name": "기독교군종병",
+      "categoryId": 4
+    },
+    {
+      "id": 40,
+      "detail": "/md/test.md",
+      "name": "천주교군종병",
+      "categoryId": 4
+    },
+    { "id": 41, "detail": "/md/test.md", "name": "불교군종병", "categoryId": 4 }
+  ]
+}

@@ -20,8 +20,8 @@
       />
     </div>
     <button
-            class="btn-search"
-            :disabled="selectedSpeciality < 0"
+      class="btn-search"
+      :disabled="selectedSpeciality < 0"
       @click="onSearch"
     >
       <i class="icofont-search-1"></i>
@@ -32,8 +32,6 @@
 
 <script>
 import FilterList from "./FilterList.vue";
-
-const groups = getGroupData();
 
 export default {
   name: "SearchFilter",
@@ -56,31 +54,58 @@ export default {
   },
   data() {
     return {
-      groups,
+      groups: [],
+      categories: [],
+      specialities: [],
       selectedGroup: this.groupId,
       selectedCategory: this.categoryId,
       selectedSpeciality: this.specialityId
     };
   },
-  computed: {
-    categories() {
-      return getCategoryData(this.selectedGroup);
-    },
-    specialities() {
-      return getSpecialityData(this.selectedGroup, this.selectedCategory);
+  mounted() {
+    this.getGroups();
+    if(this.categoryId >= 0) {
+      this.getCategories(this.groupId);
+      if(this.specialityId >= 0) {
+        this.getSpecialities(this.categoryId);
+      }
     }
   },
   methods: {
+    getGroups() {
+      // Get Group Data
+      this.$http.get("/groups").then(response => {
+        this.groups = response.data;
+      });
+    },
+    getCategories(groupId) {
+      // Get Categories
+      this.$http.get(`/groups/${groupId}/categories`).then(response => {
+        this.categories = response.data;
+      });
+    },
+    getSpecialities(categoryId) {
+      // Get Specialities
+      this.$http.get(`/categories/${categoryId}/specialities`).then(response => {
+        this.specialities = response.data;
+      });
+    },
     onGroupChanged(groupId) {
       this.selectedSpeciality = -1;
       this.selectedCategory = -1;
+      this.specialities = [];
+
       this.selectedGroup = groupId;
+
+     this.getCategories(groupId);
     },
     onCategoryChanged(categoryId) {
       if (this.selectedGroup < 0) return;
 
       this.selectedSpeciality = -1;
       this.selectedCategory = categoryId;
+
+      this.getSpecialities(categoryId);
     },
     onSpecialityChanged(specialityId) {
       if (this.selectedGroup < 0 || this.selectedCategory < 0) return;
@@ -88,45 +113,31 @@ export default {
       this.selectedSpeciality = specialityId;
     },
     onSearch() {
-      if(this.selectedGroup === this.groupId
-      && this.selectedCategory === this.categoryId
-      && this.selectedSpeciality === this.specialityId) return;
+      if (
+        this.selectedGroup === this.groupId &&
+        this.selectedCategory === this.categoryId &&
+        this.selectedSpeciality === this.specialityId
+      )
+        return;
 
       this.$router.push(this.calcUrl());
     },
     calcUrl() {
-      let url = '/search';
-      if(this.selectedGroup < 0) return url;
-      url += '/group/' + this.selectedGroup;
+      let url = "/search";
+      if (this.selectedGroup < 0) return url;
+      url += "/group/" + this.selectedGroup;
 
-      if(this.selectedCategory < 0) return url;
-      url += '/category/' + this.selectedCategory;
+      if (this.selectedCategory < 0) return url;
+      url += "/category/" + this.selectedCategory;
 
-      if(this.selectedSpeciality < 0) return url;
-      url += '/speciality/' + this.selectedSpeciality;
+      if (this.selectedSpeciality < 0) return url;
+      url += "/speciality/" + this.selectedSpeciality;
 
       return url;
     }
   }
 };
 
-// 군별
-function getGroupData() {
-  // Dummy Data
-  return require("../../data/group");
-}
-
-function getCategoryData(groupId) {
-  if (groupId === -1) return null;
-
-  return require("../../data/category");
-}
-
-function getSpecialityData(groupId, categoryId) {
-  if (groupId < 0 || categoryId < 0) return null;
-  // Dummy Data
-  return require("../../data/speciality");
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -157,7 +168,7 @@ button[disabled] {
   opacity: 0.3;
 }
 
-  .btn-search {
-    border: 0;
-  }
+.btn-search {
+  border: 0;
+}
 </style>
