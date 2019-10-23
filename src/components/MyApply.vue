@@ -1,5 +1,5 @@
 <template>
-  <el-container>
+  <el-container style="width: 1200px;">
     <el-aside>
       <h5><span>개인 맞춤 메뉴</span></h5>
       <el-menu default-active="2" @open="handleOpen" @close="handleClose">
@@ -35,20 +35,21 @@
     </el-aside>
     <el-main>
       <div class="type1" v-if="menuType === 1">
-        <h1>모의 지원 및 내 순위 보기</h1>
-        <el-row>
-          <el-button>전문특기병</el-button>
-          <el-button>기술행정병</el-button>
-          <el-button>어학병</el-button>
-        </el-row>
-        <section class="container">
-          <el-table :data="tableData" style="width: 100%">
-            <el-table-column prop="date" label="가산항목" width="380">
-            </el-table-column>
-            <el-table-column prop="name" label="해당여부" width="80">
-            </el-table-column>
-          </el-table>
-        </section>
+        <CommonApply/>
+<!--        <h1>모의 지원 및 내 순위 보기</h1>-->
+<!--        <el-row>-->
+<!--          <el-button>전문특기병</el-button>-->
+<!--          <el-button>기술행정병</el-button>-->
+<!--          <el-button>어학병</el-button>-->
+<!--        </el-row>-->
+<!--        <section class="container">-->
+<!--          <el-table :data="tableData" style="width: 100%">-->
+<!--            <el-table-column prop="date" label="가산항목" width="380">-->
+<!--            </el-table-column>-->
+<!--            <el-table-column prop="name" label="해당여부" width="80">-->
+<!--            </el-table-column>-->
+<!--          </el-table>-->
+<!--        </section>-->
       </div>
       <div class="type2" v-if="menuType === 2">
         <h1>인공지능 입영예측</h1>
@@ -83,9 +84,11 @@
 
 <script>
 import "element-ui/lib/theme-chalk/index.css";
+import CommonApply from "./CommonApply";
 
 export default {
   name: "MyApply",
+  components: {CommonApply},
   data() {
     return {
       menuType: 0,
