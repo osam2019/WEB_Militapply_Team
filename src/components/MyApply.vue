@@ -35,27 +35,31 @@
     </el-aside>
     <el-main>
       <div class="type1" v-if="menuType === 1">
-        <CommonApply/>
-<!--        <h1>모의 지원 및 내 순위 보기</h1>-->
-<!--        <el-row>-->
-<!--          <el-button>전문특기병</el-button>-->
-<!--          <el-button>기술행정병</el-button>-->
-<!--          <el-button>어학병</el-button>-->
-<!--        </el-row>-->
-<!--        <section class="container">-->
-<!--          <el-table :data="tableData" style="width: 100%">-->
-<!--            <el-table-column prop="date" label="가산항목" width="380">-->
-<!--            </el-table-column>-->
-<!--            <el-table-column prop="name" label="해당여부" width="80">-->
-<!--            </el-table-column>-->
-<!--          </el-table>-->
-<!--        </section>-->
+        <h1>통합 지원서 작성/수정</h1>
+        <p>모든 특기에 해당하는 공통서류를 작성합니다.</p>
+        <CommonApply />
+        <!--        <h1>모의 지원 및 내 순위 보기</h1>-->
+        <!--        <el-row>-->
+        <!--          <el-button>전문특기병</el-button>-->
+        <!--          <el-button>기술행정병</el-button>-->
+        <!--          <el-button>어학병</el-button>-->
+        <!--        </el-row>-->
+        <!--        <section class="container">-->
+        <!--          <el-table :data="tableData" style="width: 100%">-->
+        <!--            <el-table-column prop="date" label="가산항목" width="380">-->
+        <!--            </el-table-column>-->
+        <!--            <el-table-column prop="name" label="해당여부" width="80">-->
+        <!--            </el-table-column>-->
+        <!--          </el-table>-->
+        <!--        </section>-->
       </div>
       <div class="type2" v-if="menuType === 2">
         <h1>인공지능 입영예측</h1>
       </div>
       <div class="type3" v-if="menuType === 3">
-        <h1>나만의 입영 일정</h1>
+        <h1>나만의 입영달력</h1>
+        <p>이미 지원한 특기 또는 관심있는 특기에 대한 일정 정보입니다.</p>
+        <Schedule />
       </div>
       <div class="type4" v-if="menuType === 4">
         <h1>개인정보 수정</h1>
@@ -85,10 +89,11 @@
 <script>
 import "element-ui/lib/theme-chalk/index.css";
 import CommonApply from "./CommonApply";
+import Schedule from "./Schedule";
 
 export default {
   name: "MyApply",
-  components: {CommonApply},
+  components: { CommonApply, Schedule },
   data() {
     return {
       menuType: 0,
@@ -131,7 +136,17 @@ section {
 }
 
 h1 {
-  margin-bottom: 30px;
+  text-align: left;
+  font-size: 1.5rem;
+  line-height: 1.5em;
+  font-weight: bold;
+  margin: 0 auto 10px;
+}
+p {
+  text-align: left;
+  padding: 5px;
+  font-size: 0.9rem;
+  margin: 10px auto;
 }
 
 h5 {
