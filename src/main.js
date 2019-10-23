@@ -29,8 +29,8 @@ const routes = [
     { path: "/info", component: Information },
     { path: "/info/:id", component: PostPage },
     { path: "/stats", component: StatisticsPage },
-    { path: "/apply", component: DashBoard },
     { path: "/schedule", component: Schedule },
+    { path: "/apply", component: MyApply },
     { path: "/myapply", component: MyApply }
 
 ];

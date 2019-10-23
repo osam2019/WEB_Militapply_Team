@@ -20,12 +20,14 @@
       />
     </div>
     <button
-      class="btn-search"
+      :class="['btn-search', { red }]"
       :disabled="selectedSpeciality < 0"
-      @click="onSearch"
+      @click="
+        $emit('search', selectedGroup, selectedCategory, selectedSpeciality)
+      "
     >
-      <i class="icofont-search-1"></i>
-      <span>검색</span>
+      <i :class="buttonIcon" style="margin-right: 5px"></i>
+      <span>{{ buttonTxt }}</span>
     </button>
   </header>
 </template>
@@ -39,6 +41,10 @@ export default {
     FilterList
   },
   props: {
+    red: {
+      type: Boolean,
+      default: false
+    },
     groupId: {
       type: Number,
       default: -1
@@ -50,6 +56,14 @@ export default {
     specialityId: {
       type: Number,
       default: -1
+    },
+    buttonTxt: {
+      type: String,
+      default: "검색"
+    },
+    buttonIcon: {
+      type: String,
+      default: "icofont-search-1"
     }
   },
   data() {
@@ -64,9 +78,9 @@ export default {
   },
   mounted() {
     this.getGroups();
-    if(this.categoryId >= 0) {
+    if (this.categoryId >= 0) {
       this.getCategories(this.groupId);
-      if(this.specialityId >= 0) {
+      if (this.specialityId >= 0) {
         this.getSpecialities(this.categoryId);
       }
     }
@@ -86,9 +100,11 @@ export default {
     },
     getSpecialities(categoryId) {
       // Get Specialities
-      this.$http.get(`/categories/${categoryId}/specialities`).then(response => {
-        this.specialities = response.data;
-      });
+      this.$http
+        .get(`/categories/${categoryId}/specialities`)
+        .then(response => {
+          this.specialities = response.data;
+        });
     },
     onGroupChanged(groupId) {
       this.selectedSpeciality = -1;
@@ -97,7 +113,7 @@ export default {
 
       this.selectedGroup = groupId;
 
-     this.getCategories(groupId);
+      this.getCategories(groupId);
     },
     onCategoryChanged(categoryId) {
       if (this.selectedGroup < 0) return;
@@ -111,33 +127,9 @@ export default {
       if (this.selectedGroup < 0 || this.selectedCategory < 0) return;
 
       this.selectedSpeciality = specialityId;
-    },
-    onSearch() {
-      if (
-        this.selectedGroup === this.groupId &&
-        this.selectedCategory === this.categoryId &&
-        this.selectedSpeciality === this.specialityId
-      )
-        return;
-
-      this.$router.push(this.calcUrl());
-    },
-    calcUrl() {
-      let url = "/search";
-      if (this.selectedGroup < 0) return url;
-      url += "/group/" + this.selectedGroup;
-
-      if (this.selectedCategory < 0) return url;
-      url += "/category/" + this.selectedCategory;
-
-      if (this.selectedSpeciality < 0) return url;
-      url += "/speciality/" + this.selectedSpeciality;
-
-      return url;
     }
   }
 };
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -152,6 +144,7 @@ export default {
 }
 
 button {
+  cursor: pointer;
   width: 900px;
   line-height: 2rem;
   display: block;
@@ -161,7 +154,7 @@ button {
 }
 
 button[disabled] {
-  background-color: #1565c055;
+  opacity: 0.4;
 }
 
 .list-disabled {
@@ -170,5 +163,9 @@ button[disabled] {
 
 .btn-search {
   border: 0;
+}
+
+button.red {
+  background-color: rgb(231, 76, 60);
 }
 </style>
