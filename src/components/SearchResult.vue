@@ -1,6 +1,6 @@
 <template>
   <section>
-    <el-row type="flex" align="middle">
+    <el-row v-if="hasData" type="flex" align="middle">
       <el-col :span="11">
         <h1><u>업무 특성</u></h1>
         <Stats
@@ -31,8 +31,10 @@
         </div>
       </el-col>
     </el-row>
-    <el-row>
-      <SpecialityDetail :src="specialityData.detail ? specialityData.detail : ''" />
+    <el-row v-if="specialityId >= 0">
+      <SpecialityDetail
+        :src="specialityData.detail ? specialityData.detail : '/md/no-data.md'"
+      />
     </el-row>
   </section>
 </template>
@@ -52,30 +54,45 @@ export default {
   },
   data() {
     return {
+      hasData: false,
       specialityData: {},
       selectedUnitIdx: 0
     };
   },
   mounted() {
-    // TODO: 중복 코드 (SearchFilter.vue)
-    // Get Specialities
-    this.$http.get(`/specialities/${this.specialityId}`).then(response => {
-      this.specialityData = response.data;
-    });
+      this.getSpecialities();
+  },
+  watch: {
+    specialityId() {
+      this.getSpecialities();
+    }
+  },
+  methods: {
+    getSpecialities() {
+      // TODO: 중복 코드 (SearchFilter.vue)
+      // Get Specialities
+      this.$http.get(`/specialities/${this.specialityId}`).then(response => {
+        this.specialityData = response.data;
+        this.hasData =
+          Object.keys(this.specialityData).length > 0 &&
+          this.specialityData.hasOwnProperty("stats") &&
+          this.specialityData.hasOwnProperty("comments");
+      });
+    }
   },
   computed: {
     comments() {
-      if(!this.specialityData.hasOwnProperty('comments')) return [];
+      if (!this.specialityData.hasOwnProperty("comments")) return [];
 
       return this.specialityData.comments;
     },
     units() {
-      if(!this.specialityData.hasOwnProperty('stats')) return [];
+      if (!this.specialityData.hasOwnProperty("stats")) return [];
 
       return this.specialityData.stats.datasets;
     },
     selectedUnit() {
-      if(!this.specialityData.hasOwnProperty('stats')) return {};
+      if (!this.specialityData.hasOwnProperty("stats")) return {};
 
       const data = { ...this.specialityData.stats };
       data.datasets = [data.datasets[this.selectedUnitIdx]];

@@ -6,10 +6,10 @@
     { "name": "공군", "id": 4 }
   ],
   "categories": [
+    { "id": 4, "name": "전문특기병", "groupId": 1 },
     { "id": 1, "name": "기술행정병", "groupId": 1 },
     { "id": 2, "name": "취업맞춤특기병", "groupId": 1 },
     { "id": 3, "name": "유급지원병", "groupId": 1 },
-    { "id": 4, "name": "전문특기병", "groupId": 1 },
     { "id": 5, "name": "어학병", "groupId": 1 },
     { "id": 6, "name": "카투사", "groupId": 1 },
     { "id": 7, "name": "동반입대병(일반)", "groupId": 1 },
@@ -79,8 +79,8 @@
       "name": "유해발굴기록병",
       "categoryId": 4
     },
-    { "id": 4, "detail": "/md/test.md", "name": "군마병", "categoryId": 4 },
-    { "id": 5, "detail": "/md/test.md", "name": "의장병", "categoryId": 4 },
+    { "id": 4, "name": "군마병", "categoryId": 4 },
+    { "id": 5, "name": "의장병", "categoryId": 4 },
     {
       "id": 6,
       "detail": "/md/test.md",

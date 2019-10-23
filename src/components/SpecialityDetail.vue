@@ -1,10 +1,13 @@
 <template>
-  <Markdown class="markdown-body" :source="this.src" />
+  <Markdown class="markdown-body" :source="markdownContent" />
 </template>
 
 <script>
-import Markdown from "../../public/md/test.md";
+import Markdown from "vue-markdown";
 import "github-markdown-css";
+
+const host = "http://localhost";
+const port = "8080";
 
 export default {
   name: "SpecialityDetail",
@@ -16,7 +19,28 @@ export default {
       type: String,
       required: true
     }
-  }
+  },
+    data() {
+      return {
+          markdownContent: ''
+      };
+    },
+    mounted() {
+      this.updateMarkdownData();
+    },
+  watch: {
+    src() {
+        this.updateMarkdownData();
+    }
+  },
+    methods: {
+      updateMarkdownData() {
+          if(this.src === '') return;
+          this.$http.get(`${host}:${port}` + this.src).then((v) => {
+              this.markdownContent = v.data;
+          })
+      }
+    }
 };
 </script>
 

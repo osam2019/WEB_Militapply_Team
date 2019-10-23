@@ -8,7 +8,19 @@ import Schedule from "./components/Schedule.vue";
 import Information from "./components/Information";
 import StatisticsPage from "./components/StatisticsPage";
 import 'reset-css';
-import axios from 'axios'
+import axios from 'axios';
+//
+// const jsonServer = require('json-server');
+// const server = jsonServer.create();
+// const jsonRouter = jsonServer.router('../data/db.json');
+// const middlewares = jsonServer.defaults();
+//
+// server.use(middlewares);
+// server.use(jsonRouter);
+// server.listen(3000, () => {
+//     console.log('JSON Server is running')
+// });
+
 
 axios.defaults.baseURL = "http://localhost:3000";
 Vue.prototype.$http = axios;
