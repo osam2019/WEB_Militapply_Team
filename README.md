@@ -106,3 +106,23 @@ npm run serve
 
 #### `components`
 - `.vue` 확장자를 가진 뷰 컴포넌트를 넣는 폴더
+
+## 라이센스 정보
+- MIT License: 자세한 내용은 [LICENSE](https://github.com/identity16/dr-mili/blob/master/LICENSE) 파일에서 확인
+
+## 개발자
+- 신원준 (dnjswns0930@gmail.com)
+  - 국군지휘통신사령부 본부근무지원대 일병
+  - 디자인, 문서, 프론트엔드 UI/UX 개발
+- 손민우 (mwson987@gmail.com)
+  - 국군지휘통신사령부 본부근무지원대 일병
+  - 기획, 인공지능 관련 주요 기능 구현
+
+## Known Issue
+- 일부 정보를 제외하면 엉뚱한 링크로 가거나 데이터가 제대로 뜨지 않음
+
+## Troubleshooting
+- 현재 데모용 데이터만 추가된 상태여서 발생한 현상이며, `db.js`를 수정하여 데이터를 제대로 등록해준다면 정상 동작함
+
+## Change Log
+- v0.1 : 프로토타입. OSAM 최종 제출
