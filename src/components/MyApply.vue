@@ -82,7 +82,7 @@
             <div style="display: inline-block">{{ airel }} %</div>
           </el-card>
           <el-card
-            style="margin-bottom: 50px; margin-top: 30px; margin-left:30px; width: 250px; float: left"
+            style="margin-bottom: 50px; margin-top: 30px; margin-left:50px; width: 250px; float: left"
           >
             <div slot="header">
               <span>서류 기준 내 순위</span>
@@ -92,7 +92,7 @@
             </div>
           </el-card>
           <el-card
-            style="margin-bottom: 50px; margin-top: 30px; margin-left:30px; width: 250px; float: left"
+            style="margin-bottom: 50px; margin-top: 30px; margin-left:50px; width: 250px; float: left"
           >
             <div slot="header">
               <span>합격 확률</span>
@@ -102,7 +102,7 @@
             </div>
           </el-card>
           <el-card
-            style="margin-bottom: 50px; margin-top: 30px; width: 800px; float: left"
+            style="margin-bottom: 50px; margin-top: 30px; width: 860px; float: left"
           >
             <div slot="header">
               <span>상세 내용</span>
@@ -256,15 +256,10 @@ export default {
     open() {
       this.$alert(
         "인공지능 기능은 Github 소스에는 포함되지 않습니다!",
-        "Title",
+        "알림",
         {
           confirmButtonText: "OK",
-          callback: action => {
-            this.$message({
-              type: "info",
-              message: `action: ${action}`
-            });
-          }
+
         }
       );
     },
