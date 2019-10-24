@@ -3,16 +3,20 @@
     <el-row :gutter="20">
       <el-col :span="8">
         <div class="grid-content bg-purple-dark">
-          <Banner :height="350" :contents="bannerContents"/>
+          <Banner :height="350" :contents="bannerContents" />
         </div>
       </el-col>
       <el-col :span="16">
-        <PostTabs :posts="posts" :max="6" :pagination="false"/>
+        <PostTabs :posts="posts" :max="6" :pagination="false" />
       </el-col>
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12">
-        <StatisticsTable title="현재 사람들이 보고 있는 특기" icon="icofont-eye-alt" :table-data="watchingData" />
+        <StatisticsTable
+          title="현재 사람들이 보고 있는 특기"
+          icon="icofont-eye-alt"
+          :table-data="watchingData"
+        />
       </el-col>
       <el-col :span="12">
         <Schedule />

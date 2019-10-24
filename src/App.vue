@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-link to="/">
-      <img id="logo" src="./assets/logo.png" alt="logo" />
+      <img id="logo" src="/img/logo.png" alt="logo" />
     </router-link>
     <MenuBar :menu="menu" />
     <router-view />
@@ -58,7 +58,7 @@ export default {
 }
 
 #logo {
-  width: 200px;
+  height: 150px;
 }
 
   .el-footer {
