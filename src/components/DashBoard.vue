@@ -54,13 +54,30 @@ export default {
           url: "/info/1"
         }
       ],
-      watchingData: require("../../data/watching")
+      watchingData: [],
+      watchId: -1
     };
+  },
+  methods: {
+    getWatchingData() {
+      this.$http.get(`/watching?_sort=value&_order=desc`).then(response => {
+        this.watchingData = response.data;
+      });
+    }
   },
   mounted() {
     this.$http.get(`/posts?_sort=time&_order=desc`).then(response => {
       this.posts = response.data;
     });
+
+    this.getWatchingData();
+
+    this.watchId = setInterval((function() {
+      this.getWatchingData();
+    }).bind(this), 5000);
+  },
+  beforeDestroy() {
+    clearInterval(this.watchId);
   }
 };
 </script>

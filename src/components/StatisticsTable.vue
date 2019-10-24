@@ -4,8 +4,8 @@
       {{title}}
     </h4>
     <el-table :data="tableData" style="width: 100%" :show-header="false">
-      <el-table-column prop="order" width="100"> </el-table-column>
-      <el-table-column prop="name"> </el-table-column>
+      <el-table-column type="index" align="center" width="50"> </el-table-column>
+      <el-table-column prop="name" align="left"> </el-table-column>
       <el-table-column prop="value" width="100">
         <template slot-scope="scope">
           <i v-if="icon" :class="icon" style="margin-right: 5px;"></i>

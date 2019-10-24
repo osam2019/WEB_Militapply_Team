@@ -16,7 +16,6 @@ import listPlugin from "@fullcalendar/daygrid";
 import "popper.js";
 import Tooltip from "tooltip.js";
 
-
 export default {
   name: "Schedule",
   components: {
@@ -35,13 +34,12 @@ export default {
   },
   methods: {
     onRender(info) {
-      const tooltip = new Tooltip(info.el, {
+      new Tooltip(info.el, {
         title: info.event.extendedProps.description,
-        placement: 'top',
-        trigger: 'hover',
-        container: 'body',
+        placement: "top",
+        trigger: "hover",
+        container: "body"
       });
-      console.dir(tooltip);
     },
     genColor(seed) {
       let color = Math.floor(Math.abs(Math.sin(seed) * 16777215) % 16777215);
@@ -81,5 +79,4 @@ export default {
 .fc-toolbar .fc-header-toolbar {
   font-size: 12px;
 }
-
 </style>

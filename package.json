@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "mockdb": "json-server --watch ./data/db.json",
+    "mockdb": "json-server --watch data/db.js",
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {

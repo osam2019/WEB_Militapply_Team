@@ -2,26 +2,26 @@
   {
     "order": 1,
     "name": "SW 개발병",
-    "value": 200000
+    "value": 2345
   },
   {
     "order": 2,
     "name": "M/W 장비 운용병",
-    "value": 20000
+    "value": 1243
   },
   {
     "order": 3,
     "name": "의경",
-    "value": 2000
+    "value": 1056
   },
   {
     "order": 4,
     "name": "카투사",
-    "value": 1000
+    "value": 852
   },
   {
     "order": 5,
     "name": "공익",
-    "value": 500
+    "value": 512
   }
 ]
