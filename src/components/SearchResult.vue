@@ -29,6 +29,9 @@
             {{ item }}
           </blockquote>
         </div>
+        <el-button v-if="$root.$data.shared.user.isAuthenticated" type="success">
+          글쓰기
+        </el-button>
       </el-col>
     </el-row>
     <el-row v-if="specialityId >= 0">
@@ -142,7 +145,7 @@ color: #777777;
   font-weight: 600;
 }
 
-.quote-container > i {
+.quote-container i {
   color: #cecece;
   font-size: 1.5rem;
 }

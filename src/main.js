@@ -30,8 +30,7 @@ const routes = [
     { path: "/info/:id", component: PostPage },
     { path: "/stats", component: StatisticsPage },
     { path: "/schedule", component: Schedule },
-    { path: "/apply", component: MyApply },
-    { path: "/myapply", component: MyApply }
+    { path: "/apply", component: MyApply }
 
 ];
 
@@ -40,7 +39,18 @@ const router = new VueRouter({
     routes
 });
 
+const shared = {
+    user: {
+        id: 1,
+        name: '홍길동',
+        isAuthenticated: true
+    }
+};
+
 new Vue({
     router,
+    data: {
+        shared
+    },
     render: h => h(App)
 }).$mount("#app");
