@@ -67,7 +67,7 @@ export default {
     },
     posts: {
       type: Array,
-      default: () => []
+      required: true
     },
     pagination: {
       type: Boolean,
@@ -83,19 +83,15 @@ export default {
   },
   computed: {
     allPosts() {
-      return [...this.posts].sort(
-        (v1, v2) => new Date(v1.time) - new Date(v2.time)
-      );
+      return [...this.posts];
     },
     noticePosts() {
       return [...this.posts]
-        .filter(v => v.type === "notice")
-        .sort((v1, v2) => new Date(v1.time) - new Date(v2.time));
+        .filter(v => v.type === "notice");
     },
     informationPosts() {
       return [...this.posts]
-        .filter(v => v.type === "information")
-        .sort((v1, v2) => new Date(v1.time) - new Date(v2.time));
+        .filter(v => v.type === "information");
     },
     slicedAllPosts() {
       const start = this.currentPage * this.max;
@@ -108,6 +104,11 @@ export default {
     slicedInformationPosts() {
       const start = this.currentPage * this.max;
       return [...this.informationPosts].slice(start, start + this.max);
+    }
+  },
+  watch: {
+    posts() {
+      this.itemTotal = this.posts.length;
     }
   },
   methods: {

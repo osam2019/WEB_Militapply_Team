@@ -40,14 +40,14 @@ export default {
       posts: require("../../data/post"),
       bannerContents: [
         {
-          src: "https://picsum.photos/id/488/300/350",
+          src: "/img/dashboard1.jpg",
           alt: "banner1",
-          url: "/info/46"
+          url: "/info/2"
         },
         {
-          src: "https://picsum.photos/id/321/300/350",
+          src: "/img/dashboard2.gif",
           alt: "banner2",
-          url: "/info/8"
+          url: "/info/1"
         }
       ],
       watchingData: require("../../data/watching")

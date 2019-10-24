@@ -135,7 +135,11 @@ h1 {
 }
 
 .quote-container {
+  line-height: 1.5rem;
+color: #777777;
   margin: 80px auto;
+  word-break: keep-all;
+  font-weight: 600;
 }
 
 .quote-container > i {

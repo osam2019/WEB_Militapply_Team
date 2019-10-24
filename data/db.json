@@ -32,40 +32,7 @@
       "id": 1,
       "detail": "/md/test.md",
       "name": "특공병",
-      "categoryId": 4,
-      "stats": {
-        "labels": [
-          "정신적 업무강도",
-          "육체적 업무강도",
-          "야근",
-          "전공적합",
-          "휴가",
-          "시간휙휙",
-          "자유도"
-        ],
-        "datasets": [
-          {
-            "label": "부대 평균",
-            "data": [3.5, 2, 2, 5, 4, 0.1, 5]
-          },
-          {
-            "label": "국군지휘통신사령부",
-            "data": [2, 3, 4, 5, 0, 2, 3]
-          },
-          {
-            "label": "4284부대",
-            "data": [5, 4, 3, 2, 1, 2, 3]
-          },
-          {
-            "label": "육군본부",
-            "data": [3.5, 2.1, 2.2, 0.3, 4, 5, 5]
-          }
-        ]
-      },
-      "comments": [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ac.",
-        "Lorem ipsum dolor sit amet, consectetur"
-      ]
+      "categoryId": 4
     },
     {
       "id": 2,
@@ -120,7 +87,45 @@
       "name": "정보보호병",
       "categoryId": 4
     },
-    { "id": 15, "detail": "/md/test.md", "name": "S/W개발병", "categoryId": 4 },
+    {
+      "id": 15,
+      "detail": "/md/sw-dev.md",
+      "name": "S/W개발병",
+      "categoryId": 4,
+      "stats": {
+        "labels": [
+          "정신적 업무강도",
+          "육체적 업무강도",
+          "야근",
+          "전공적합",
+          "휴가",
+          "시간휙휙",
+          "자유도"
+        ],
+        "datasets": [
+          {
+            "label": "부대 평균",
+            "data": [3.5, 3.03, 3.16, 2.66, 1.66, 3, 3.66]
+          },
+          {
+            "label": "국군지휘통신사령부",
+            "data": [2, 3, 4, 5, 0, 2, 3]
+          },
+          {
+            "label": "4284부대",
+            "data": [5, 4, 3, 2, 1, 2, 3]
+          },
+          {
+            "label": "육군본부",
+            "data": [3.5, 2.1, 2.2, 0.3, 4, 5, 5]
+          }
+        ]
+      },
+      "comments": [
+        "군대에서 코딩하는 최선의 방법!",
+        "일반적인 코딩과는 달리 개발환경에 제약이 많은 편"
+      ]
+    },
     {
       "id": 16,
       "detail": "/md/test.md",
@@ -260,172 +265,144 @@
   ],
   "posts": [
     {
-      "id": 10,
-      "title": "이거슨 공지입니다.",
-      "contentSrc": "/md/post-test.md",
+      "id": 1,
+      "title": "복무기간 단축 제대로 알고 입영합시다",
+      "contentSrc": "/md/post1.md",
+      "type": "information",
+      "time": 1571880086944
+    },
+    {
+      "id": 2,
+      "title": "'20년 입영대상 각 군 현역병 연간 모집일정 안내",
+      "contentSrc": "/md/post2.md",
       "type": "notice",
-      "time": "Tue, 22 Oct 2019 06:55:48 GMT"
+      "time": 1571880086941
     },
     {
-      "id": 9,
-      "title": "이거슨 정보입니다.",
-      "contentSrc": "/md/post-test.md",
-      "type": "information",
-      "time": "Mon, 21 Oct 2019 06:55:48 GMT"
+      "id": 3,
+      "title": "'20년 입영대상 해군 특전병, 심해잠수병 모집일정 안내",
+      "contentSrc": "/md/post1.md",
+      "type": "notice",
+      "time": 1571880086940
     },
     {
-      "id": 8,
-      "title": "이거슨 또 정보입니다.",
-      "contentSrc": "/md/post-test.md",
+      "id": 4,
+      "title": "2020년 1월 입영 육군기술행정병 모집안내",
+      "contentSrc": "/md/post1.md",
+      "type": "notice",
+      "time": 1571880086939
+    },
+    {
+      "id": 5,
+      "title": "현역병 모집 봉사활동 가산점 인정단체 확대",
+      "contentSrc": "/md/post1.md",
       "type": "information",
-      "time": "Mon, 21 Oct 2019 06:56:48 GMT"
+      "time": 1571880086938
+    },
+    {
+      "id": 6,
+      "title": "2017 함께성장 중소·벤처 일자리 박람회 개최",
+      "contentSrc": "/md/post1.md",
+      "type": "information",
+      "time": 1571880086937
     },
     {
       "id": 7,
-      "title": "이거슨 또오 정보입니다.",
-      "contentSrc": "/md/post-test.md",
+      "title": "(추가모집) 2019년 11월에 입영하는 육군 기술행정병 추가모집",
+      "contentSrc": "/md/post1.md",
+      "type": "notice",
+      "time": 1571880086936
+    },
+    {
+      "id": 8,
+      "title": "(추가모집) 2019년 10월에 입영하는 육군 기술행정병 추가모집",
+      "contentSrc": "/md/post1.md",
+      "type": "notice",
+      "time": 1571880086935
+    },
+    {
+      "id": 9,
+      "title": "2019년 입영대상 해병대 병 모집안내",
+      "contentSrc": "/md/post1.md",
+      "type": "notice",
+      "time": 1571880086934
+    },
+    {
+      "id": 10,
+      "title": "\"군복무 경력으로 취업문 뚫었어요~\" - 매일경제('16.9.29.)",
+      "contentSrc": "/md/post1.md",
       "type": "information",
-      "time": "Sat, 19 Oct 2019 06:55:48 GMT"
+      "time": 1571880086933
     },
     {
-      "id": 159,
-      "title": "이거슨 공2지2입니다.",
-      "contentSrc": "/md/post-test.md",
-      "type": "notice",
-      "time": "Tue, 22 Oct 2019 06:55:48 GMT"
+      "id": 11,
+      "title": "복무기간 단축 제대로 알고 입영합시다",
+      "contentSrc": "/md/post1.md",
+      "type": "information",
+      "time": 1571880086744
     },
     {
-      "id": 8765,
-      "title": "이거슨 공2지2입니다.",
-      "contentSrc": "/md/post-test.md",
+      "id": 12,
+      "title": "'20년 입영대상 각 군 현역병 연간 모집일정 안내",
+      "contentSrc": "/md/post1.md",
       "type": "notice",
-      "time": "Tue, 22 Oct 2019 06:55:48 GMT"
+      "time": 1571880086741
     },
     {
-      "id": 986,
-      "title": "이거슨 공2지2입니다.",
-      "contentSrc": "/md/post-test.md",
+      "id": 13,
+      "title": "'20년 입영대상 해군 특전병, 심해잠수병 모집일정 안내",
+      "contentSrc": "/md/post1.md",
       "type": "notice",
-      "time": "Tue, 22 Oct 2019 06:55:48 GMT"
+      "time": 1571880086740
     },
     {
-      "id": 1235,
-      "title": "이거슨 공2지2입니다.",
-      "contentSrc": "/md/post-test.md",
+      "id": 14,
+      "title": "2020년 1월 입영 육군기술행정병 모집안내",
+      "contentSrc": "/md/post1.md",
       "type": "notice",
-      "time": "Tue, 22 Oct 2019 06:55:48 GMT"
+      "time": 1571880086739
     },
     {
-      "id": 7956,
-      "title": "이거슨 공2지2입니다.",
-      "contentSrc": "/md/post-test.md",
-      "type": "notice",
-      "time": "Tue, 22 Oct 2019 06:55:48 GMT"
+      "id": 15,
+      "title": "현역병 모집 봉사활동 가산점 인정단체 확대",
+      "contentSrc": "/md/post1.md",
+      "type": "information",
+      "time": 1571880086738
     },
     {
-      "id": 3456,
-      "title": "이거슨 공2지2입니다.",
-      "contentSrc": "/md/post-test.md",
-      "type": "notice",
-      "time": "Tue, 22 Oct 2019 06:55:48 GMT"
+      "id": 21,
+      "title": "복무기간 단축 제대로 알고 입영합시다",
+      "contentSrc": "/md/post1.md",
+      "type": "information",
+      "time": 1571880086644
     },
     {
-      "id": 6085,
-      "title": "이거슨 공2지2입니다.",
-      "contentSrc": "/md/post-test.md",
+      "id": 22,
+      "title": "'20년 입영대상 각 군 현역병 연간 모집일정 안내",
+      "contentSrc": "/md/post1.md",
       "type": "notice",
-      "time": "Tue, 22 Oct 2019 06:55:48 GMT"
+      "time": 1571880086641
     },
     {
-      "id": 679,
-      "title": "이거슨 공2지2입니다.",
-      "contentSrc": "/md/post-test.md",
+      "id": 23,
+      "title": "'20년 입영대상 해군 특전병, 심해잠수병 모집일정 안내",
+      "contentSrc": "/md/post1.md",
       "type": "notice",
-      "time": "Tue, 22 Oct 2019 06:55:48 GMT"
+      "time": 1571880086640
     },
     {
-      "id": 6876579,
-      "title": "이거슨 공2지2입니다.",
-      "contentSrc": "/md/post-test.md",
+      "id": 24,
+      "title": "2020년 1월 입영 육군기술행정병 모집안내",
+      "contentSrc": "/md/post1.md",
       "type": "notice",
-      "time": "Tue, 22 Oct 2019 06:55:48 GMT"
+      "time": 1571880086639
     },
     {
-      "id": 676476,
-      "title": "이거슨 공2지2입니다.",
-      "contentSrc": "/md/post-test.md",
-      "type": "notice",
-      "time": "Tue, 22 Oct 2019 06:55:48 GMT"
-    },
-    {
-      "id": 66345,
-      "title": "이거슨 공2지2입니다.",
-      "contentSrc": "/md/post-test.md",
-      "type": "notice",
-      "time": "Tue, 22 Oct 2019 06:55:48 GMT"
-    },
-    {
-      "id": 613212,
-      "title": "이거슨 공2지2입니다.",
-      "contentSrc": "/md/post-test.md",
-      "type": "notice",
-      "time": "Tue, 22 Oct 2019 06:55:48 GMT"
-    },
-    {
-      "id": 62131,
-      "title": "이거슨 공2지2입니다.",
-      "contentSrc": "/md/post-test.md",
-      "type": "notice",
-      "time": "Tue, 22 Oct 2019 06:55:48 GMT"
-    },
-    {
-      "id": 621,
-      "title": "이거슨 공2지2입니다.",
-      "contentSrc": "/md/post-test.md",
-      "type": "notice",
-      "time": "Tue, 22 Oct 2019 06:55:48 GMT"
-    },
-    {
-      "id": 678,
-      "title": "이거슨 공2지2입니다.",
-      "contentSrc": "/md/post-test.md",
-      "type": "notice",
-      "time": "Tue, 22 Oct 2019 06:55:48 GMT"
-    },
-    {
-      "id": 566,
-      "title": "이거슨 공2지2입니다.",
-      "contentSrc": "/md/post-test.md",
-      "type": "notice",
-      "time": "Tue, 22 Oct 2019 06:55:48 GMT"
-    },
-    {
-      "id": 56,
-      "title": "이거슨 공2지2입니다.",
-      "contentSrc": "/md/post-test.md",
-      "type": "notice",
-      "time": "Tue, 22 Oct 2019 06:55:48 GMT"
-    },
-    {
-      "id": 46,
-      "title": "이거슨 공2지2입니다.",
-      "contentSrc": "/md/post-test.md",
-      "type": "notice",
-      "time": "Tue, 22 Oct 2019 06:55:48 GMT"
-    },
-    {
-      "id": 36,
-      "title": "이거슨 공2지2입니다.",
-      "contentSrc": "/md/post-test.md",
-      "type": "notice",
-      "time": "Tue, 22 Oct 2019 06:55:48 GMT"
-    },
-    {
-      "id": 26,
-      "title": "이거슨 공2지2입니다.",
-      "contentSrc": "/md/post-test.md",
-      "type": "notice",
-      "time": "Tue, 22 Oct 2019 06:55:48 GMT"
+      "id": 25,
+      "title": "현역병 모집 봉사활동 가산점 인정단체 확대",
+      "contentSrc": "/md/post1.md",
+      "type": "information",
+      "time": 1571880086638
     }
   ]
 }

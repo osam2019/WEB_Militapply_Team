@@ -19,18 +19,23 @@ export default {
     return {
       bannerContents: [
         {
-          src: "https://picsum.photos/id/884/1000/200",
+          src: "/img/banner1.gif",
           alt: "wide1",
-          url: "/info/8"
+          url: "/info/1"
         },
         {
-          src: "https://picsum.photos/id/123/1000/200",
+          src: "/img/banner2.jpg",
           alt: "wide2",
-          url: "/info/36"
+          url: "/info/2"
         }
       ],
-      posts: require("../../data/post")
+      posts: []
     };
+  },
+  mounted() {
+    this.$http.get(`/posts?_sort=time&_order=desc`).then(response => {
+      this.posts = response.data;
+    });
   }
 };
 </script>
