@@ -15,11 +15,11 @@
 > 실행을 위해서는 Node.js와 git이 설치되어 있어야 합니다
 1. 저장소 클론
 ```
-git clone https://github.com/identity16/dr-mili.git
+git clone https://github.com/identity16/WEB_Militapply_Team.git
 ```
 2. 폴더 이동
 ```
-cd dr-mili
+cd WEB_Militapply_Team
 ```
 3. Dependency 설치
 ```
