@@ -25,7 +25,8 @@
     "vue": "^2.5.22",
     "vue-chartjs": "^3.4.2",
     "vue-markdown": "^2.2.4",
-    "vue-router": "3.1.3"
+    "vue-router": "3.1.3",
+    "vue-upload-multiple-image-korean": "^1.1.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "3.6.0",
