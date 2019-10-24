@@ -58,7 +58,10 @@
                         자기소개서 <i class="el-icon-check"></i>
                     </div>
                 </el-card>
-                <el-button round size="middle" style="font-size: 20px; width: 500px; "
+                <el-button v-if='apikey === ""' round size="middle" style="font-size: 20px; width: 530px;" @click="open">
+                    인공지능 기능은 Github 소스에는 포함되지 않습니다!
+                </el-button>
+                <el-button v-else round size="middle" style="font-size: 20px; width: 500px; "
                            @click="aiapChanger"> 지원하기
                 </el-button>
                 <div v-if="aiap === 1">
@@ -114,11 +117,15 @@
             </div>
             <div class="type5" v-if="menuType === 6">
                 <h1 class="menutitle">복무(전역)자 인증</h1>
+                <el-button v-if='apikey === ""' round size="middle" style="font-size: 20px; width: 530px;" @click="open">
+                    인공지능 기능은 Github 소스에는 포함되지 않습니다!
+                </el-button>
                 <vue-upload-multiple-image
                         @upload-success="uploadImageSuccess"
                         @before-remove="beforeRemove"
                         :data-images="images"
                         style="float: left"
+                        v-else
                 ></vue-upload-multiple-image>
                 <div style="width: 500px; display: inline-block; margin-bottom: 70px;">
                     <div v-if="varauth === false" style="margin-left: -50px">
@@ -220,16 +227,18 @@
             };
         },
         methods: {
-            open() {
-                this.$alert('인공지능 기능은 Github 소스에는 포함되지 않습니다! \n 사용하기 위해선 /src/components/MyApply.vue의 219 line의 apikey에 google api key를 넣어주세요 :)', 'Title', {
-                    confirmButtonText: 'OK',
-                    callback: action => {
-                        this.$message({
-                            type: 'info',
-                            message: `action: ${action}`
-                        });
-                    }
-                });
+            methods: {
+                open() {
+                    this.$alert('인공지능 기능은 Github 소스에는 포함되지 않습니다!', 'Title', {
+                        confirmButtonText: 'OK',
+                        callback: action => {
+                            this.$message({
+                                type: 'info',
+                                message: `action: ${ action }`
+                            });
+                        }
+                    });
+                }
             },
             aiapChanger() {
                 this.aiap = 1;
