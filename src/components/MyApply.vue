@@ -58,7 +58,8 @@
                         자기소개서 <i class="el-icon-check"></i>
                     </div>
                 </el-card>
-                <el-button v-if='apikey === ""' round size="middle" style="font-size: 20px; width: 530px;" @click="open">
+                <el-button v-if='apikey === ""' round size="middle" style="font-size: 20px; width: 530px;"
+                           @click="open">
                     인공지능 기능은 Github 소스에는 포함되지 않습니다!
                 </el-button>
                 <el-button v-else round size="middle" style="font-size: 20px; width: 500px; "
@@ -117,7 +118,8 @@
             </div>
             <div class="type5" v-if="menuType === 6">
                 <h1 class="menutitle">복무(전역)자 인증</h1>
-                <el-button v-if='apikey === ""' round size="middle" style="font-size: 20px; width: 530px;" @click="open">
+                <el-button v-if='apikey === ""' round size="middle" style="font-size: 20px; width: 530px;"
+                           @click="open">
                     인공지능 기능은 Github 소스에는 포함되지 않습니다!
                 </el-button>
                 <vue-upload-multiple-image
@@ -150,7 +152,7 @@
                             </div>
                         </el-card>
                         <div style="margin-top: 20px; margin-left: -50px;">
-                            <el-button round style="margin-right: 10px;">예</el-button>
+                            <el-button round style="margin-right: 10px;" @click="authC">예</el-button>
                             <el-button type="danger" round>아니오</el-button>
                         </div>
                     </div>
@@ -210,6 +212,8 @@
         components: {CommonApply, Schedule, SpecialityApply, VueUploadMultipleImage,},
         data() {
             return {
+                tmp: "",
+                bauth: false,
                 menuType: "1",
                 aitext1: "",
                 airel: "",
@@ -223,22 +227,31 @@
                 varauth: "",
                 ans: "",
                 images: [],
-                apikey: ""
+                apikey: "AIzaSyBQVYrX7JyBibRxQ7WIaLwEiShnynaJZLs"
             };
         },
+        mounted() {
+                this.$http.patch('http://localhost:3000/auth/1', {
+                    "status": false
+                })
+        },
         methods: {
-            methods: {
-                open() {
-                    this.$alert('인공지능 기능은 Github 소스에는 포함되지 않습니다!', 'Title', {
-                        confirmButtonText: 'OK',
-                        callback: action => {
-                            this.$message({
-                                type: 'info',
-                                message: `action: ${ action }`
-                            });
-                        }
-                    });
-                }
+            authC() {
+                this.$http.patch('http://localhost:3000/auth/1', {
+                    "status": true
+                })
+            },
+
+            open() {
+                this.$alert('인공지능 기능은 Github 소스에는 포함되지 않습니다!', 'Title', {
+                    confirmButtonText: 'OK',
+                    callback: action => {
+                        this.$message({
+                            type: 'info',
+                            message: `action: ${action}`
+                        });
+                    }
+                });
             },
             aiapChanger() {
                 this.aiap = 1;

@@ -22,13 +22,19 @@
       </el-col>
       <el-col :span="11">
         <h1><u>복무자 한줄평</u></h1>
-        <div class="quote-container" v-for="item in comments" :key="item">
+        <div v-if="bauth === true">
+          <el-button type="primary" icon="el-icon-edit" circle style="margin-top: 30px;margin-left: -10px; margin-right: 20px"></el-button>
+          <el-input placeholder="한줄평을 작성해주세요" v-model="input" style="margin-top: 30px; width: 300px;"></el-input>
+          <el-button style="margin-left: 15px" @click="onlineSubmit">글쓰기</el-button>
+        </div>
+        <div class="quote-container"  v-for="item in tmpcomment" :key="item">
           <i class="icofont-quote-left" style="float: left;"></i>
           <i class="icofont-quote-right" style="float: right;"></i>
           <blockquote>
             {{ item }}
           </blockquote>
         </div>
+
       </el-col>
     </el-row>
     <el-row v-if="specialityId >= 0">
@@ -54,15 +60,20 @@ export default {
   },
   data() {
     return {
+      bauth : false,
       hasData: false,
       specialityData: {},
-      selectedUnitIdx: 0
+      selectedUnitIdx: 0,
+      input : '',
+      tmpcomment : [],
+      cv : false
     };
   },
   mounted() {
     if(this.specialityId >= 0) {
       this.getSpecialities();
     }
+    this.inputCreate();
   },
   watch: {
     specialityId() {
@@ -70,6 +81,16 @@ export default {
     }
   },
   methods: {
+    onlineSubmit() {
+          this.tmpcomment.push(this.input)
+          this.input = ""
+    },
+    inputCreate() {
+      this.$http.get('http://localhost:3000/auth')
+              .then((res) => {
+                this.bauth = res.data[0].status
+              })
+    },
     getSpecialities() {
       // TODO: 중복 코드 (SearchFilter.vue)
       // Get Specialities

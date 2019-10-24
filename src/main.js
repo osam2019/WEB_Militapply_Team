@@ -22,16 +22,16 @@ Vue.use(ElementUI);
 
 const routes = [
     { path: "/", component: DashBoard },
-    { path: "/search", component: SearchPage },
-    { path: "/search/group/:group", component: SearchPage },
-    { path: "/search/group/:group/category/:category", component: SearchPage },
-    { path: "/search/group/:group/category/:category/speciality/:speciality", component: SearchPage },
+    { path: "/search", component: SearchPage, props : {auth : false} },
+    { path: "/search/group/:group", component: SearchPage, props : {auth : false} },
+    { path: "/search/group/:group/category/:category", component: SearchPage, props : {auth : false} },
+    { path: "/search/group/:group/category/:category/speciality/:speciality", component: SearchPage, props : {auth : false} },
     { path: "/info", component: Information },
     { path: "/info/:id", component: PostPage },
     { path: "/stats", component: StatisticsPage },
     { path: "/schedule", component: Schedule },
     { path: "/apply", component: MyApply },
-    { path: "/myapply", component: MyApply }
+    { path: "/myapply", component: MyApply, props : {auth : false} }
 
 ];
 
