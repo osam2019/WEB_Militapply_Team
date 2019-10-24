@@ -17,20 +17,24 @@
 ```
 git clone https://github.com/identity16/dr-mili.git
 ```
-2. Dependency 설치
+2. 폴더 이동
+```
+cd dr-mili
+```
+3. Dependency 설치
 ```
 npm install
 ```
-3. [json-server](https://github.com/typicode/json-server)으로 된 Mock DB 실행 (데모용 데이터가 들어가있음)
+4. [json-server](https://github.com/typicode/json-server)으로 된 Mock DB 실행 (데모용 데이터가 들어가있음)
 ```
 npm run mockdb
 ```
-4. vue 프로젝트 실행
+5. vue 프로젝트 실행
 ```
 npm run serve
 ```
 > 본 프로젝트는 프로토타입이므로 개발 모드로 실행됩니다.
-5. 사이트 접속
+6. 사이트 접속
 
 브라우저에서 [https://localhost:8080](https://localhost:8080)에 접속합니다
 
