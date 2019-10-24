@@ -253,22 +253,20 @@ export default {
     };
   },
   methods: {
-    methods: {
-      open() {
-        this.$alert(
-          "인공지능 기능은 Github 소스에는 포함되지 않습니다!",
-          "Title",
-          {
-            confirmButtonText: "OK",
-            callback: action => {
-              this.$message({
-                type: "info",
-                message: `action: ${action}`
-              });
-            }
+    open() {
+      this.$alert(
+        "인공지능 기능은 Github 소스에는 포함되지 않습니다!",
+        "Title",
+        {
+          confirmButtonText: "OK",
+          callback: action => {
+            this.$message({
+              type: "info",
+              message: `action: ${action}`
+            });
           }
-        );
-      }
+        }
+      );
     },
     aiapChanger() {
       this.aiap = 1;
