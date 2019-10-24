@@ -37,7 +37,7 @@ export default {
   },
   data() {
     return {
-      posts: require("../../data/post"),
+      posts: [],
       bannerContents: [
         {
           src: "/img/dashboard1.jpg",
@@ -52,6 +52,11 @@ export default {
       ],
       watchingData: require("../../data/watching")
     };
+  },
+  mounted() {
+    this.$http.get(`/posts?_sort=time&_order=desc`).then(response => {
+      this.posts = response.data;
+    });
   }
 };
 </script>
