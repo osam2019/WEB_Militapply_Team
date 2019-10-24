@@ -1,3 +1,4 @@
+const randomNormal = require('random-normal');
 const data = {
   groups: [
     { name: "육군", id: 1 },
@@ -514,6 +515,12 @@ data.watching = [
     value: 512
   }
 ];
+
+data.specialities.forEach(v => {
+    v.competitiveRate = Math.round(randomNormal({mean: 5, dev: 2.3}) * 10) / 10 ;
+    if(v.competitiveRate < 0) v.competitiveRate = 0;
+
+});
 
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);

@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     getWatchingData() {
-      this.$http.get(`/watching?_sort=value&_order=desc`).then(response => {
+      this.$http.get(`/watching?_sort=value&_order=desc&_start=0&_end=5`).then(response => {
         this.watchingData = response.data;
       });
     }
