@@ -30,7 +30,7 @@
           </blockquote>
         </div>
         <el-button v-if="$root.$data.shared.user.isAuthenticated" type="success">
-          글쓰기
+          한줄평 남기기
         </el-button>
       </el-col>
     </el-row>
