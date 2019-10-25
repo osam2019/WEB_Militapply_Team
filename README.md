@@ -2,6 +2,7 @@
 > 2019 OSAM(Open Source Academy for Military) 출품작
 
 > 초기 화면정의서: [링크](https://ovenapp.io/view/rl9AHLii5XaYT9M8sxbzFZ9RXaVPNCzh)
+
 > 인공지능 기능 활성화법 : src/component/MyApply.vue의 data() 내부 apiKey에(254line) apikey: "AIzaSyBQVYrX7JyBibRxQ7WIaLwEiShnynaJZLs"를 입력해줘야 합니다.
 
 
